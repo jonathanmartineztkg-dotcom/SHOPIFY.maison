@@ -1,0 +1,35 @@
+# Maison Meszarics — carpeta para compartir
+
+Material para que otra persona (u otra sesión de Claude) retome el trabajo sin empezar de cero.
+Actualizado al **19 de septiembre de 2026**.
+
+## Qué es el proyecto
+
+Tienda Shopify de **un solo producto**: short deportivo de cintura alta, sin costuras, con estampado
+de leopardo en 8 colores. Se vende a **México** desde una LLC de EE. UU. La publicidad corre en
+**Meta** (Facebook e Instagram). El dueño de la marca es el cliente; Jony (desarrollador freelance)
+lleva la tienda y las campañas.
+
+## Cómo leer esta carpeta
+
+| Archivo | Para qué sirve |
+|---|---|
+| `01-resumen-general.md` | Todo lo que se hizo, en orden, y dónde estamos hoy |
+| `02-meta-ads.md` | Cuenta, campañas, IDs, qué funciona, reglas de la cuenta |
+| `03-tienda-diseno.md` | **Sistema de diseño de la tienda**: colores, tipografías, estructura, archivos del tema y trampas |
+| `04-reportes-recientes.md` | Números al día y los PDF entregados al cliente |
+| `05-proximos-cambios.md` | Lo que se quiere cambiar en la tienda, con la mejor forma de hacerlo y lo que hay que decidir antes |
+| `reportes/` | Los PDF que ya recibió el cliente |
+
+**Si vas a tocar la tienda, leé primero `03-tienda-diseno.md`, sobre todo la sección "Trampas".**
+Hay dos errores que ya tumbaron o rompieron la tienda una vez.
+
+## Reglas que no se negocian
+
+- Textos de la tienda y de los anuncios en **español de México**. Nada de voseo ("elegí", "medí", "escribinos").
+- **No** cambiar el precio sin que lo decida el cliente.
+- **No** activar Advantage+ Audience ni Advantage+ Creative en Meta: decisión del cliente.
+- **No** poner reseñas, estrellas ni "más vendido" inventados. La tienda todavía no tiene reseñas reales.
+- **No** prometer resultados sobre el cuerpo en anuncios (Meta los rechaza).
+- El número fiscal (EIN) de la LLC **nunca** va en la web.
+- Nunca mover dinero ni cobrar desde las cuentas del cliente.

@@ -11,10 +11,11 @@ Antes de empezar: `theme pull`, nunca `push --only`, y revisar el resultado en u
 
 ## Para decidir antes de empezar
 
-Hay cuatro puntos que no están del todo definidos. Conviene cerrarlos antes de programar:
+Quedan tres puntos por cerrar antes de programar (el primero ya se resolvió):
 
-1. **El "video corto con la M o el nombre"**: ¿dónde va? Instagram y las páginas de Facebook
-   **no aceptan video como foto de perfil**. Las opciones reales están en el cambio 5.
+1. ~~**El "video corto con la M o el nombre"**: ¿dónde va?~~ **Resuelto el 20/9.**
+   Va como logo animado en el encabezado (SVG, no video) y el video queda para el Reel y la
+   portada de Facebook. Las piezas están hechas: ver `06-logo-redondo.md`.
 2. **Punteadas**: ¿cuáles se sacan? Hay una propuesta en el cambio 2.
 3. **Banner de la home**: ¿qué mensaje lleva? La propuesta está en el cambio 3.
 4. **Segunda tipografía**: ¿Cormorant (ya cargada, costo cero) o una fuente nueva? Ver el cambio 4.
@@ -26,16 +27,21 @@ Hay cuatro puntos que no están del todo definidos. Conviene cerrarlos antes de 
 **Lo que se quiere:** la clienta toca "Café" y la galería le muestra primero una modelo con el short
 café, y al final la foto limpia del producto café. **No agregar más fotos que esas dos por color.**
 
-**Estado actual:** hay foto de modelo solo en **rosa y café**. Las 8 fotos limpias ya están.
+**Estado actual:** en la tienda hay foto de modelo solo en **rosa y café**; las 8 fotos limpias ya están.
+En `fotos-tienda/` hay 6 fotos de modelo más, listas para subir, que suman **púrpura, cian y gris negro**.
 Al elegir un color, hoy la galería salta a la foto limpia de ese color, pero siguen visibles todas las demás.
 
 **Cómo hacerlo bien:**
 
-- **Primero, el contenido:** faltan **6 fotos de modelo** (azul, púrpura, cian, gris negro,
-  gris claro, gris oscuro), con la misma estética: fondo claro, luz pareja, formato 4:5, sin marcas de IA.
-  Sin esas fotos el cambio no se puede terminar.
+- **Primero, el contenido:** al 20/9 faltan **3 fotos de modelo**: **azul, gris claro y gris
+  oscuro**. Púrpura, cian y gris negro ya están hechas, más una segunda de café (de espaldas) y una
+  nueva de rosa: todas en `fotos-tienda/`, sin el sello "Ai" y en 4:5.
+  Las que falten tienen que salir con la misma estética: fondo claro, luz pareja, 4:5, sin marcas de IA.
+  Sin esas 3 el cambio no se puede terminar para los 8 colores.
 - **Después, la técnica:** filtrar la galería por color.
   - Cargar en el **texto alternativo** de cada foto el nombre exacto del color (`Café`, `Gris claro`…).
+    Verificado contra la tienda el 20/9: **hoy las 10 fotos del producto lo tienen vacío**, así que
+    hay que cargarlo en todas. Los textos propuestos están en `fotos-tienda/LEEME.md`.
   - En la sección del producto, mostrar solo las fotos cuyo texto alternativo coincide con el color
     elegido: **primero la de modelo, después la limpia**. Verificado en el código del tema (Dawn 15.5,
     `assets/product-info.js`, función `updateMedia`): al cambiar de variante pide la sección de nuevo al
@@ -113,6 +119,9 @@ Se aplica sobre `.mm-acc summary` en `assets/mm-custom.css`.
 
 ## 5. Video corto con la M o el nombre de la marca
 
+> **Hecho el 20/9.** El plan completo y las piezas listas para usar están en `06-logo-redondo.md`
+> y en la carpeta `marca/`. Lo de abajo es el análisis que llevó a esa decisión.
+
 **No se puede como foto de perfil:** Instagram y las páginas de Facebook solo aceptan imagen fija.
 
 **Opciones reales, de mejor a peor:**
@@ -151,7 +160,7 @@ México y Meta rechaza anuncios con promesas sobre el cuerpo. Se dejó para más
 2. **Banner de la home** con la garantía y el botón de compra.
 3. **Promo "llevá 2"** y anunciarla en el banner.
 4. **Producir las 6 fotos de modelo** que faltan y, con ellas, el filtro de galería por color.
-5. **Logo animado**, una vez definido dónde va.
+5. **Logo animado**: ya está definido y armado, solo falta instalarlo (`06-logo-redondo.md`).
 
 Después de cada paso: revisar en un celular real, y si se quiere medir el efecto, anotar la fecha
 del cambio para cruzarla con los números de Meta.

@@ -1,6 +1,6 @@
 # Resumen general — qué se hizo y dónde estamos
 
-## Estado hoy (19 de septiembre de 2026)
+## Estado hoy (20 de septiembre de 2026)
 
 - **2 ventas** desde los anuncios: $58,68 (16/9) y $29,34 (19/9) → **$88,02 USD**.
 - **$68,55 USD invertidos** en Meta en la campaña actual.
@@ -52,6 +52,16 @@
 - 17/9: se pausó el grupo de video (171 visitas sin un carrito) y se extendió la campaña al 27/9.
 - **Segunda venta el 19/9** ($29,34).
 
+### 20/9 — fotos de modelo nuevas y el redondo de la M
+- Llegaron **6 fotos de modelo** (café de frente y de espaldas, rosa, púrpura, cian y gris negro).
+  Traían el sello **"Ai"** en la esquina: se les quitó, se recortaron a 4:5 y quedaron en el tamaño
+  que acepta Shopify (las originales, de 38,5 MP, no se podían subir). Están en `fotos-tienda/`.
+  Los colores se confirmaron cruzándolos con las fotos limpias que ya están en la tienda.
+- Todavía faltan tres colores con modelo: **azul, gris claro y gris oscuro**.
+- Se cerró el punto que estaba abierto del **logo animado**: va como SVG en el encabezado (1,9 KB,
+  no un video) y el video queda para el Reel y la portada de Facebook. Todo en `marca/` y
+  explicado en `06-logo-redondo.md`.
+
 ## Lo que se aprendió (vale para lo que venga)
 
 1. **El mensaje que vende es la garantía**: "si no te queda, te devolvemos tu dinero".
@@ -69,3 +79,5 @@
 - 4 páginas heredadas vacías publicadas (`/pages/the-maison` dice "Editorial copy pending").
 - El botón flotante de WhatsApp dice "Escribinos" (voseo). **No se toca** hasta que lo diga Jony.
 - Cambios de diseño nuevos: ver `05-proximos-cambios.md`.
+- Subir las 6 fotos de `fotos-tienda/` y cargarles el texto alternativo (hoy las 10 fotos del
+  producto lo tienen vacío). Instalar el redondo de la M en el tema: ver `06-logo-redondo.md`.

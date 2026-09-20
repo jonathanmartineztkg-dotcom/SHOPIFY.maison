@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Meszarics — el redondo de la M</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,500;1,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mm-paper:#fdf9f8; --mm-ink:#17110f; --mm-rose:#b97c8c;
+    --mm-rose-soft:#f6eef0; --mm-hair:#e8dcde; --mm-muted:#9a8b86; --mm-text:#6b5c58;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--mm-paper); color:var(--mm-ink);
+    font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .envoltura{max-width:880px; margin:0 auto; padding:40px 16px 80px}
+  .etiqueta{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--mm-rose); margin:0 0 8px
+  }
+  h1{font-size:1.9rem; font-weight:700; margin:0 0 6px; letter-spacing:-.01em}
+  .bajada{color:var(--mm-text); margin:0 0 40px; max-width:46ch; line-height:1.55}
+  h2{
+    font-family:Cormorant,Georgia,serif; font-style:italic; font-weight:600;
+    font-size:1.8rem; margin:48px 0 4px
+  }
+  .nota{color:var(--mm-muted); font-size:.85rem; margin:0 0 20px}
+  .tarjeta{border-top:1px dashed var(--mm-hair); padding-top:24px}
+
+  /* ---- el redondo ---- */
+  .mm-logo-m{display:inline-block; line-height:0;
+    width:var(--mm-logo-lado,46px); height:var(--mm-logo-lado,46px)}
+  .mm-logo-m svg{display:block; width:100%; height:100%}
+  .mm-logo-m__disco,.mm-logo-m__aro{opacity:1}
+  .mm-logo-m__eme{stroke-dasharray:100; stroke-dashoffset:0}
+
+  .animando .mm-logo-m--animado .mm-logo-m__disco{
+    transform-origin:50% 50%;
+    animation:mm-logo-entrar .45s cubic-bezier(.22,.61,.36,1) both}
+  .animando .mm-logo-m--animado .mm-logo-m__aro{
+    animation:mm-logo-aparecer .5s ease-out .9s both}
+  .animando .mm-logo-m--animado .mm-logo-m__eme{
+    stroke-dashoffset:100;
+    animation:mm-logo-trazar 1.05s cubic-bezier(.22,.61,.36,1) .18s forwards}
+  @keyframes mm-logo-entrar{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+  @keyframes mm-logo-trazar{to{stroke-dashoffset:0}}
+  @keyframes mm-logo-aparecer{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .animando .mm-logo-m--animado *{animation:none !important}
+    .animando .mm-logo-m--animado .mm-logo-m__eme{stroke-dashoffset:0}
+  }
+
+  /* ---- encabezado de mentira, para verlo en contexto ---- */
+  .barra{background:var(--mm-rose); color:#fff; text-align:center;
+    font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; padding:9px}
+  .encabezado{display:flex; align-items:center; gap:14px; padding:14px 18px;
+    border-bottom:1px solid var(--mm-hair); background:var(--mm-paper)}
+  .marca-texto{font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500}
+  .marco{border:1px solid var(--mm-hair); border-radius:2px; overflow:hidden; margin-bottom:12px}
+
+  .fila{display:flex; align-items:flex-end; gap:34px; flex-wrap:wrap}
+  .pieza{text-align:center}
+  .pieza small{display:block; color:var(--mm-muted); font-size:.74rem; margin-top:10px}
+  .boton{
+    display:inline-block; background:var(--mm-ink); color:#fff; border:0; border-radius:0;
+    padding:13px 22px; font-family:inherit; font-size:.82rem; letter-spacing:.06em;
+    cursor:pointer; margin-top:8px
+  }
+  .sobre-rosa{background:var(--mm-rose-soft); padding:26px; display:inline-block}
+  .sobre-ink{background:var(--mm-ink); padding:26px; display:inline-block}
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <p class="etiqueta">Maison Meszarics</p>
+  <h1>El redondo de la M</h1>
+  <p class="bajada">
+    La M se dibuja sola una vez por visita y queda fija. Pesa 1,9 KB: es un dibujo, no un video,
+    así que no le saca velocidad a la tienda.
+  </p>
+
+  <button class="boton" id="repetir">Volver a verlo</button>
+
+  <h2>En el encabezado</h2>
+  <p class="nota">Así se vería arriba de todo. 46 px en celular, 56 px en escritorio.</p>
+  <div class="marco">
+    <div class="barra">Envío gratis a todo México</div>
+    <div class="encabezado">
+      <span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:46px" data-logo></span>
+      <span class="marca-texto">Maison Meszarics</span>
+    </div>
+  </div>
+
+  <h2>Tamaños</h2>
+  <p class="nota">Se lee bien desde 40 px. Abajo de eso, el aro se pierde.</p>
+  <div class="tarjeta fila">
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:40px" data-logo></span><small>40 px</small></div>
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:46px" data-logo></span><small>46 px · celular</small></div>
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:56px" data-logo></span><small>56 px · escritorio</small></div>
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:96px" data-logo></span><small>96 px</small></div>
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:160px" data-logo></span><small>160 px · perfil</small></div>
+  </div>
+
+  <h2>Sobre los fondos de la marca</h2>
+  <p class="nota">Crema, rosa suave y negro. El negro es el que se recomienda para el disco.</p>
+  <div class="tarjeta fila">
+    <div class="pieza"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:80px" data-logo></span><small>crema #fdf9f8</small></div>
+    <div class="pieza sobre-rosa"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:80px" data-logo></span><small>rosa suave #f6eef0</small></div>
+    <div class="pieza sobre-ink"><span class="mm-logo-m mm-logo-m--animado" style="--mm-logo-lado:80px" data-logo data-rosa></span><small style="color:#9a8b86">negro #17110f</small></div>
+  </div>
+
+</div>
+
+<template id="plantilla-logo">
+  <svg viewBox="0 0 100 100" role="img" aria-label="Maison Meszarics" focusable="false">
+    <circle class="mm-logo-m__disco" cx="50" cy="50" r="50" fill="#17110f"/>
+    <circle class="mm-logo-m__aro" cx="50" cy="50" r="44.2" fill="none" stroke="#fdf9f8" stroke-opacity=".16" stroke-width=".9"/>
+    <path class="mm-logo-m__eme" pathLength="100" d="M26.5 71.5 V28.5 L50 62 L73.5 28.5 V71.5"
+          fill="none" stroke="#fdf9f8" stroke-width="5.2"
+          stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6"/>
+  </svg>
+</template>
+
+<script>
+  const plantilla = document.getElementById('plantilla-logo');
+  document.querySelectorAll('[data-logo]').forEach(function (hueco) {
+    const svg = plantilla.content.cloneNode(true);
+    if (hueco.hasAttribute('data-rosa')) {
+      svg.querySelector('.mm-logo-m__disco').setAttribute('fill', '#b97c8c');
+      svg.querySelector('.mm-logo-m__aro').setAttribute('stroke-opacity', '.22');
+    }
+    hueco.appendChild(svg);
+  });
+
+  function animar() {
+    document.body.classList.remove('animando');
+    void document.body.offsetWidth;   // fuerza a que el navegador reinicie la animación
+    document.body.classList.add('animando');
+  }
+  document.getElementById('repetir').addEventListener('click', animar);
+  animar();
+</script>
+</body>
+</html>

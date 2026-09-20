@@ -1,0 +1,47 @@
+/* ============================================================
+   Redondo de marca (la M). Va al final de assets/mm-custom.css.
+   ============================================================ */
+
+.mm-logo-m {
+  display: inline-block;
+  line-height: 0;
+  width: var(--mm-logo-lado, 46px);
+  height: var(--mm-logo-lado, 46px);
+}
+.mm-logo-m svg { display: block; width: 100%; height: 100%; }
+
+/* Quieto por defecto: si el navegador no ejecuta el script, se ve el logo terminado. */
+.mm-logo-m__disco,
+.mm-logo-m__aro { opacity: 1; }
+.mm-logo-m__eme { stroke-dasharray: 100; stroke-dashoffset: 0; }
+
+/* Solo la primera página de la visita se dibuja. */
+.mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__disco {
+  transform-origin: 50% 50%;
+  animation: mm-logo-entrar .45s cubic-bezier(.22, .61, .36, 1) both;
+}
+.mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__aro {
+  animation: mm-logo-aparecer .5s ease-out .9s both;
+}
+.mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__eme {
+  stroke-dashoffset: 100;
+  animation: mm-logo-trazar 1.05s cubic-bezier(.22, .61, .36, 1) .18s forwards;
+}
+
+@keyframes mm-logo-entrar   { from { opacity: 0; transform: scale(.94) } to { opacity: 1; transform: none } }
+@keyframes mm-logo-trazar   { to { stroke-dashoffset: 0 } }
+@keyframes mm-logo-aparecer { from { opacity: 0 } to { opacity: 1 } }
+
+/* Quien pidió menos movimiento en su teléfono no lo ve moverse. */
+@media (prefers-reduced-motion: reduce) {
+  .mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__disco,
+  .mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__aro,
+  .mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__eme { animation: none }
+  .mm-logo-primera-vez .mm-logo-m--animado .mm-logo-m__eme { stroke-dashoffset: 0 }
+}
+
+/* Tamaños del encabezado: chico en celular, un poco mayor en escritorio. */
+.header .mm-logo-m { --mm-logo-lado: 46px }
+@media screen and (min-width: 750px) {
+  .header .mm-logo-m { --mm-logo-lado: 56px }
+}

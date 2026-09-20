@@ -1,0 +1,51 @@
+{%- comment -%}
+  Redondo de marca: la M blanca que se dibuja sola una vez por visita.
+  Va en el tema, en snippets/mm-logo-m.liquid.
+
+  Uso:  {% render 'mm-logo-m', size: 46 %}
+        {% render 'mm-logo-m', size: 120, fondo: 'rosa', animar: false %}
+
+  size    px del lado del círculo (46 en celular, 56 en escritorio)
+  fondo   'ink' (por defecto) o 'rosa'
+  animar  true por defecto; false deja el logo quieto (pie de página, correos)
+{%- endcomment -%}
+
+{%- liquid
+  assign lado = size | default: 46
+  assign fondo = fondo | default: 'ink'
+  if animar == nil
+    assign animar = true
+  endif
+  if fondo == 'rosa'
+    assign disco = '#b97c8c'
+    assign aro_op = '.22'
+  else
+    assign disco = '#17110f'
+    assign aro_op = '.16'
+  endif
+-%}
+
+<span class="mm-logo-m{% if animar %} mm-logo-m--animado{% endif %}" style="--mm-logo-lado: {{ lado }}px">
+  <svg viewBox="0 0 100 100" width="{{ lado }}" height="{{ lado }}" role="img"
+       aria-label="{{ shop.name | escape }}" focusable="false">
+    <circle class="mm-logo-m__disco" cx="50" cy="50" r="50" fill="{{ disco }}"/>
+    <circle class="mm-logo-m__aro" cx="50" cy="50" r="44.2" fill="none"
+            stroke="#fdf9f8" stroke-opacity="{{ aro_op }}" stroke-width=".9"/>
+    <path class="mm-logo-m__eme" pathLength="100" d="M26.5 71.5 V28.5 L50 62 L73.5 28.5 V71.5"
+          fill="none" stroke="#fdf9f8" stroke-width="5.2"
+          stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="6"/>
+  </svg>
+</span>
+
+{%- comment -%} Se dibuja una vez por visita, no en cada página. {%- endcomment -%}
+<script>
+  (function () {
+    try {
+      if (sessionStorage.getItem('mmLogoVisto')) return;
+      sessionStorage.setItem('mmLogoVisto', '1');
+      document.documentElement.classList.add('mm-logo-primera-vez');
+    } catch (e) {
+      document.documentElement.classList.add('mm-logo-primera-vez');
+    }
+  })();
+</script>

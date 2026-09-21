@@ -126,33 +126,15 @@
 }
 
 /* ------------------------------------------------------------
-   5. Tipografía de los títulos grandes: más alta y más angosta
+   5. Tipografía de los títulos: SIN CAMBIOS
    ------------------------------------------------------------
-   Requiere la familia en la URL de Google Fonts de layout/theme.liquid.
-   El peso de acá y el de esa URL tienen que coincidir: hoy los dos
-   dicen 500. Si se cambia uno, hay que cambiar el otro.
+   Barlow Condensed se sacó el 21/9 por pedido de Jony. Los títulos
+   vuelven a Figtree 800, exactamente como estaban: no hace falta
+   ninguna regla acá, porque mm-custom.css ya los define.
+
+   Si algún día se retoma, hay que tocar DOS lugares a la vez:
+   este archivo y la URL de Google Fonts de layout/theme.liquid.
    ------------------------------------------------------------ */
-
-.mm-hero__tit,
-.mm-cierre__tit,
-.mm-ficha__tit {
-  font-family: "Barlow Condensed", Figtree, Assistant, -apple-system, "Segoe UI", sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.002em;
-}
-
-/* Barlow Condensed es más angosta y de ojo más alto que Figtree, así
-   que al mismo tamaño se ve más chica: hay que subirla y cerrarle la
-   interlínea, si no el título queda flojo. */
-.mm-hero__tit {
-  font-size: 3.9rem;
-  line-height: 1;
-}
-@media screen and (min-width: 750px) {
-  .mm-hero__tit {
-    font-size: 6.6rem;
-  }
-}
 
 /* ------------------------------------------------------------
    6. Galería: sin flechas cuando hay una sola foto

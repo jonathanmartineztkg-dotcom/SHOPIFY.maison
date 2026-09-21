@@ -1,0 +1,124 @@
+/* ============================================================
+   MAISON — cambios pedidos el 21/9/2026
+   Va al FINAL de assets/mm-custom.css, todo junto y en este orden.
+   Cada bloque es independiente: se puede borrar uno sin romper los otros.
+   ============================================================ */
+
+:root {
+  /* Un solo número para el redondeo. 0 = cuadrado (como estaba),
+     8px = redondeo suave, 999px = pastilla. */
+  --mm-radio: 8px;
+}
+
+/* ------------------------------------------------------------
+   1. El botón del héroe: esquinas redondeadas
+   ------------------------------------------------------------ */
+
+.mm-hero__btn {
+  border-radius: var(--mm-radio);
+}
+
+/* El sistema de diseño dice "botones cuadrados". Si el redondeo va a
+   quedarse, tiene que ir en TODOS los botones o se nota el parche.
+   Estas tres líneas alcanzan para que la tienda quede pareja. */
+.mm-cierre__btn,
+.product-form__submit,
+.shopify-payment-button__button {
+  border-radius: var(--mm-radio);
+}
+
+/* ------------------------------------------------------------
+   2. Las garantías: una sola fila en celular, más chicas
+   ------------------------------------------------------------ */
+
+@media screen and (max-width: 749px) {
+  .mm-gar {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 6px;
+    padding: 1.4rem 1rem;
+  }
+  .mm-gar__item {
+    gap: .5rem;
+  }
+  .mm-gar__ico {
+    width: 16px;
+    height: 16px;
+  }
+  .mm-gar__txt {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+}
+
+/* Los íconos eran rosa sobre rosa: 1,9:1 de contraste, por debajo del
+   3:1 que necesita un gráfico para verse. Por eso se veían lavados.
+   En negro se leen. Si preferís el rosa, borrá este bloque. */
+.mm-gar__ico svg {
+  stroke: var(--mm-ink, #17110f);
+}
+
+/* ------------------------------------------------------------
+   3. Fuera las líneas de los acordeones
+   ------------------------------------------------------------ */
+
+/* Ojo: son CUATRO líneas, no dos. Además de las punteadas hay dos
+   sólidas cargadas antes en este mismo archivo. Si se borran solo las
+   punteadas quedan las sólidas y se ve casi igual. */
+.mm-acc,
+.mm-acc:first-of-type,
+.mm-acc:last-of-type {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+/* Sin líneas los acordeones se pegan: un poco más de aire para que
+   se sigan leyendo como lista. */
+.mm-acc summary {
+  padding: 1.9rem 0;
+}
+.mm-acc__body {
+  padding-bottom: 2rem;
+}
+
+/* ------------------------------------------------------------
+   4. Tipografía de los títulos grandes: más alta y más angosta
+   ------------------------------------------------------------
+   Requiere sumar la familia a la URL de Google Fonts en
+   layout/theme.liquid (ver 08-ficha-y-tipografia.md).
+   Se usa SOLO en los títulos grandes. Cormorant itálica sigue siendo
+   la voz de la marca en los acentos chicos, y Figtree el cuerpo.
+   ------------------------------------------------------------ */
+
+.mm-hero__tit,
+.mm-cierre__tit,
+.mm-ficha__tit {
+  font-family: "Barlow Condensed", Figtree, Assistant, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+/* Barlow Condensed es más angosta y de ojo más alto que Figtree, así
+   que al mismo tamaño se ve más chica: hay que subirla y cerrarle la
+   interlínea, si no el título queda flojo. */
+.mm-hero__tit {
+  font-size: 3.9rem;
+  line-height: 0.98;
+}
+@media screen and (min-width: 750px) {
+  .mm-hero__tit {
+    font-size: 6.6rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   5. Galería: sin flechas cuando hay una sola foto
+   ------------------------------------------------------------
+   Con el filtro por color, los colores que no tienen foto de modelo
+   quedan con una sola imagen. La clase la pone
+   snippets/product-media-gallery.liquid.
+   ------------------------------------------------------------ */
+
+.slider-buttons.mm-sin-deslizar {
+  display: none;
+}

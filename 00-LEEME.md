@@ -21,6 +21,7 @@ lleva la tienda y las campañas.
 | `05-proximos-cambios.md` | Lo que se quiere cambiar en la tienda, con la mejor forma de hacerlo y lo que hay que decidir antes |
 | `06-logo-redondo.md` | **El redondo de la M**: cómo se hace, dónde va y qué falta decidir |
 | `07-home-y-banner.md` | **La home y la barra de arriba**: el carrusel, el descuento del 30 %, el héroe y las punteadas |
+| `08-ficha-y-tipografia.md` | **La galería por color**, el botón redondeado, las garantías en una fila y la tipografía nueva |
 | `reportes/` | Los PDF que ya recibió el cliente |
 | `fotos-tienda/` | Las fotos de modelo sin el sello "Ai", listas para subir. Empezar por su `LEEME.md` |
 | `marca/` | Piezas listas para el tema: el redondo de la M, los videos y los bloques de CSS |

@@ -72,6 +72,19 @@
   filtro por color.
 - Propuestas para la home, la barra de arriba con carrusel y el descuento: `07-home-y-banner.md`.
 
+### 21/9, segunda vuelta — la ficha
+- **Se encontró por qué la galería mezclaba colores**: el ajuste `hide_variants` del tema muestra
+  siempre las fotos que no están asignadas a ninguna variante. Al pasar las variantes a las fotos
+  nuevas, las dos de modelo viejas quedaron sueltas y aparecían en todos los colores. Por eso,
+  eligiendo café, salía una modelo de rosa.
+- Escrito el filtro de galería por color (`marca/product-media-gallery.liquid`): primero las fotos
+  de modelo de ese color, después la limpia, y sin deslizar cuando hay una sola.
+- Más cambios de CSS listos para pegar: botón del héroe redondeado, garantías en una sola fila en
+  celular, fuera las líneas de los acordeones.
+- Tipografía nueva para los títulos grandes, medida contra el título real: **Barlow Condensed 700**,
+  un 20 % más angosta que Figtree. Comparación en `marca/comparacion-tipografias.png`.
+- Todo explicado en `08-ficha-y-tipografia.md`.
+
 ## Lo que se aprendió (vale para lo que venga)
 
 1. **El mensaje que vende es la garantía**: "si no te queda, te devolvemos tu dinero".

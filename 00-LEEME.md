@@ -22,6 +22,7 @@ lleva la tienda y las campañas.
 | `06-logo-redondo.md` | **El redondo de la M**: cómo se hace, dónde va y qué falta decidir |
 | `07-home-y-banner.md` | **La home y la barra de arriba**: el carrusel, el descuento del 30 %, el héroe y las punteadas |
 | `08-ficha-y-tipografia.md` | **La galería por color**, el botón redondeado, las garantías en una fila y la tipografía nueva |
+| `09-ajustes-finos.md` | **Segunda tanda del 21/9**: título menos negrita, fotos de modelo en la home, redondeo sutil y líneas en la descripción |
 | `reportes/` | Los PDF que ya recibió el cliente |
 | `fotos-tienda/` | Las fotos de modelo sin el sello "Ai", listas para subir. Empezar por su `LEEME.md` |
 | `marca/` | Piezas de marca: el redondo de la M, los videos y el CSS de la barra de anuncios |

@@ -104,3 +104,70 @@ Sobre la vista previa del tema nuevo, no supuesto:
   tipografía. La URL de Google Fonts volvió a pedir solo Figtree y Cormorant.
 - Las 6 reglas nuevas llegaron al CSS servido, que Shopify minifica.
 - La descripción del producto tiene sus 4 `<li>`, que son los que reciben los separadores.
+
+---
+
+# Segunda parte: la opción A, el botón de "+" y el celular
+
+Pedidos del 21/9 después de ver el lienzo de tipografías.
+
+## La tipografía: opción A, sin fuentes nuevas
+
+Se descartaron Archivo y Cormorant. **Quedó la A: solo Figtree**, la que ya estaba cargada.
+Costo en velocidad: **cero**.
+
+Lo que cambia no es la fuente, es el tratamiento. Los tres títulos grandes —el del héroe, el del
+cierre y "Elige tu color"— pasan a **mayúsculas con interletrado negativo**. Esa era la fuerza de
+la referencia que pasó Jony: no venía del tipo de letra, venía del tamaño, del apretado y de las
+mayúsculas.
+
+**Una palabra del título del héroe va en rosa.** Se maneja desde el editor: lo que se escriba entre
+asteriscos sale en `--mm-rose`. Hoy el ajuste dice `Sin costuras, sin *transparencias*`. Si se
+sacan los asteriscos, el título sale entero en blanco y no se rompe nada.
+
+**"Elige tu color" dejó de ser Cormorant itálica.** Entra al mismo sistema que los otros dos, como
+en la maqueta A. Cormorant sigue viva en la ficha de producto ("Impuestos incluidos" y la clase
+`.mm-serif`), pero **ya no aparece en la home**. Si se la quiere de vuelta, es borrar el bloque
+`.mm-colores__tit` del CSS.
+
+### El tamaño del título está atado al ancho de la pantalla
+
+Esto salió de medir, no de mirar. Con la fuente real: en mayúsculas, **"SIN TRANSPARENCIAS" mide
+327 px a 32 px de tipografía**. En un celular de 390 px quedan 346 px útiles, así que entraba por
+19 px — pero **en uno de 360 px se pasaba**, y son muchos.
+
+Por eso el tamaño es `clamp(2.6rem, 8.4vw, 3.2rem)`: entra desde 320 px para arriba y en escritorio
+no cambia. Si algún día se alarga el título, hay que rehacer esta cuenta.
+
+## El botón de "+" en los colores
+
+El enlace de texto que estaba debajo de la grilla pasó a ser un **botón con un "+"** dentro de la
+grilla, a **ancho completo**.
+
+Ocupar todo el ancho no es capricho: la grilla es de **2 columnas en celular y 4 en escritorio**.
+Una quinta tarjeta cuadrada quedaría huérfana al final de la fila en los dos casos. A lo ancho
+funciona igual de bien en ambos, y en celular queda como un cierre claro de la sección.
+
+Mide **64 px de alto**, bastante más que los 44 px mínimos para tocar cómodo.
+
+Usa los **mismos dos ajustes del editor** que tenía el enlace de texto (texto y destino), así que no
+hay nada que volver a cargar.
+
+## Una trampa nueva, para la próxima
+
+Los archivos se suben al tema desde una URL de GitHub. **La URL de la rama se cachea**: una vez
+Shopify se trajo la versión vieja aunque el repo ya tuviera la nueva, y la mutación no dio ningún
+error — el archivo simplemente quedó viejo.
+
+**Hay que usar la URL fijada al commit**
+(`raw.githubusercontent.com/<usuario>/<repo>/<sha>/...`), que es inmutable. Y después **confirmar
+el tamaño del archivo en el tema**, no confiar en que la mutación no haya fallado.
+
+## Cómo se revisó
+
+- El título del héroe llega con su `<span>` en rosa y **sin asteriscos sueltos** en la página.
+- El botón de "+" está, y el enlace de texto viejo ya no.
+- El CSS servido trae el `clamp`, las mayúsculas en los tres títulos, "Elige tu color" en Figtree y
+  el botón a ancho completo con sus 64 px.
+- **No se carga ninguna fuente nueva**: la URL de Google Fonts sigue pidiendo solo Figtree y
+  Cormorant.

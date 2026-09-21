@@ -85,6 +85,17 @@
   un 20 % más angosta que Figtree. Comparación en `marca/comparacion-tipografias.png`.
 - Todo explicado en `08-ficha-y-tipografia.md`.
 
+### 21/9, tercera vuelta — los cambios están subidos
+- Se hizo una **copia del tema** ("Jonathan Martinez — cambios 21/9", ID `153534988378`,
+  **sin publicar**) y ahí se subieron los tres archivos. El tema publicado no se tocó.
+- Vista previa: `https://maisonmeszarics.com/?preview_theme_id=153534988378`
+- Probado sobre la vista previa, los 8 colores uno por uno: cada uno muestra solo sus fotos,
+  primero las de modelo y al final la limpia. Azul, gris claro y gris oscuro quedan con una sola
+  foto y sin flechas.
+- Las dos fotos de modelo viejas (1600×2000) quedaron fuera del filtro cambiándoles el texto
+  alternativo. No se borraron: se deshace en un minuto.
+- Falta: mirarlo en un celular real, medir la velocidad y **publicar desde el admin**.
+
 ## Lo que se aprendió (vale para lo que venga)
 
 1. **El mensaje que vende es la garantía**: "si no te queda, te devolvemos tu dinero".
@@ -102,6 +113,7 @@
 - 4 páginas heredadas vacías publicadas (`/pages/the-maison` dice "Editorial copy pending").
 - El botón flotante de WhatsApp dice "Escribinos" (voseo). **No se toca** hasta que lo diga Jony.
 - Cambios de diseño nuevos: ver `05-proximos-cambios.md`.
+- **Publicar el tema copia** una vez revisado en celular: ver `08-ficha-y-tipografia.md`.
 - Instalar el redondo de la M en el tema: ver `06-logo-redondo.md`.
 - Decidir el descuento (A, B o C de `07-home-y-banner.md`) **con el cliente**: toca el margen.
 - Programar el filtro de galería por color: ya están los textos alternativos, faltan las 3 fotos

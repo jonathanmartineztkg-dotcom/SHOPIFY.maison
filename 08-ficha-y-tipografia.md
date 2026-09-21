@@ -3,15 +3,36 @@
 Pedidos de Jony del 21/9/2026. Todo verificado contra el tema publicado, contra el CSS que la
 tienda sirve y contra el `product-info.js` que corre hoy en el navegador.
 
-## Qué archivo va dónde
+## Estado: ya está subido y probado
 
-| Archivo de `marca/` | Dónde va en el tema |
+**Todo esto ya está aplicado en una copia del tema**, sin tocar el publicado:
+
+| | |
 |---|---|
-| `product-media-gallery.liquid` | Reemplaza `snippets/product-media-gallery.liquid` |
-| `mm-cambios-21-09.css` | Se pega **al final** de `assets/mm-custom.css` |
-| *(una línea)* | La URL de Google Fonts en `layout/theme.liquid`, ~línea 324 |
+| Tema copia | **"Jonathan Martinez — cambios 21/9"**, ID `153534988378`, sin publicar |
+| Vista previa | `https://maisonmeszarics.com/?preview_theme_id=153534988378` |
+| Editor | `https://admin.shopify.com/store/an7i08-cf/themes/153534988378/editor` |
+| Tema publicado | Sigue siendo `152283250778`, **intacto** |
 
-Después: `push` completo, nunca `--only`, y revisar en un celular real.
+Para que entre en vivo: **Tienda online → Temas → "Jonathan Martinez — cambios 21/9" → Publicar.**
+Se publica desde el admin; la conexión de acá tiene bloqueado publicar temas, y está bien que así sea.
+
+Si algo sale mal, se vuelve publicando de nuevo el tema anterior. No se perdió nada.
+
+### Qué archivo es cada cosa
+
+La carpeta `tema/` del repo tiene la estructura real del tema, así que se puede copiar encima de
+una copia local y hacer `push`:
+
+| Archivo del repo | Archivo del tema |
+|---|---|
+| `tema/snippets/product-media-gallery.liquid` | `snippets/product-media-gallery.liquid` |
+| `tema/assets/mm-cambios.css` | `assets/mm-cambios.css` *(nuevo)* |
+| `tema/layout/theme.liquid` | `layout/theme.liquid` |
+
+El CSS nuevo **no se pegó dentro de `mm-custom.css`**: va en su propio archivo, cargado justo
+después en el `<head>`. Así le gana sin `!important`, se lee de un vistazo qué se cambió el 21/9 y
+se puede sacar borrando una línea.
 
 ---
 
@@ -51,22 +72,28 @@ Dawn de fábrica. La ficha nunca queda sin fotos.
 
 ### Cómo queda cada color
 
-| Color | Qué se ve | Cuántas |
-|---|---|---|
-| Café | modelo de frente, modelo de espaldas, **modelo vieja**, foto limpia | 4 |
-| Rosa | modelo nueva, **modelo vieja**, foto limpia | 3 |
-| Púrpura | modelo, foto limpia | 2 |
-| Cian | modelo, foto limpia | 2 |
-| Gris Negro | modelo, foto limpia | 2 |
-| Azul | foto limpia | 1, sin deslizar |
-| Gris claro | foto limpia | 1, sin deslizar |
-| Gris oscuro | foto limpia | 1, sin deslizar |
+Esto **no es lo esperado, es lo medido**: se cargaron los 8 colores en la vista previa y se leyó la
+galería que devuelve cada uno.
 
-**Lo que hay que decidir:** las dos fotos de modelo **viejas** (café y rosa) son de 1600×2000, menos
-de la mitad de resolución que las nuevas, y son las que hacen que café tenga 4 fotos y rosa 3.
-Sacándolas queda café con 3 (frente, espaldas, limpia) y rosa con 2, que es exactamente lo pedido:
-las modelos primero y el artículo al final. **Decilo y las quito** — es un minuto desde acá o desde
-el admin.
+| Color | Qué se ve, en orden | Cuántas |
+|---|---|---|
+| Rosa | modelo → foto limpia | 2 |
+| Café | modelo de frente → modelo de espaldas → foto limpia | 3 |
+| Azul | foto limpia | **1, sin flechas** |
+| Púrpura | modelo → foto limpia | 2 |
+| Cian | modelo → foto limpia | 2 |
+| Gris Negro | modelo → foto limpia | 2 |
+| Gris claro | foto limpia | **1, sin flechas** |
+| Gris oscuro | foto limpia | **1, sin flechas** |
+
+Ningún color muestra fotos de otro. Café es el único con tres porque tiene la vista de espaldas,
+que suma en vez de estorbar.
+
+**Las dos fotos de modelo viejas quedaron fuera.** Eran de 1600×2000, menos de la mitad de
+resolución que las nuevas, y hacían que café tuviera 4 y rosa 3. No se borraron: se les cambió el
+texto alternativo a *"Short deportivo sin costuras … (foto anterior)"*, sin el nombre del color, así
+que el filtro ya no las toma. **Se deshace en un minuto**: se le vuelve a poner el color al texto
+alternativo y reaparecen.
 
 ### Por qué esto funciona sin tocar JavaScript
 
@@ -192,12 +219,23 @@ volver atrás.
 
 ---
 
-## Orden para subirlo
+## Lo que falta hacer
 
-1. `theme pull`.
-2. Reemplazar `snippets/product-media-gallery.liquid`.
-3. Pegar `mm-cambios-21-09.css` al final de `assets/mm-custom.css`.
-4. Cambiar la línea de Google Fonts en `layout/theme.liquid`.
-5. `push` **completo**.
-6. En un celular real: elegir cada uno de los 8 colores y confirmar la tabla de arriba.
-7. Medir la velocidad. Si subió, el sospechoso es la tipografía.
+Lo de arriba ya está subido y probado. Queda:
+
+1. **Abrir la vista previa en un celular real** y mirar la home y la ficha.
+   La regla del proyecto es esa: no confiar en capturas de un navegador de escritorio.
+2. **Medir la velocidad** antes de publicar. Lo que agregan estos cambios está medido:
+   **~22 KB** de la tipografía (el subconjunto latino de Barlow Condensed 700, que es el que
+   descarga un navegador en español) y **582 bytes** del CSS nuevo comprimido. Con `display: swap`
+   el texto se dibuja enseguida con Figtree y no bloquea nada, así que no debería moverse de los
+   0,55–0,82 s. Pero hay que medirlo: si pasa de 0,9 s, el sospechoso es la tipografía.
+3. **Publicar** desde el admin, si todo está bien.
+4. Opcional, desde el editor: acortar las 4 etiquetas de las garantías, como dice el punto 3.
+
+### Cómo se revisó
+
+- Los 8 colores, uno por uno, leyendo la galería que devuelve la vista previa.
+- Que `mm-cambios.css` se carga **después** de `mm-custom.css` (si no, no le ganaría).
+- Que las 8 reglas nuevas llegaron al CSS servido, que Shopify minifica.
+- Que la home sigue entera: héroe, garantías, fichas, colores, cierre y pie.

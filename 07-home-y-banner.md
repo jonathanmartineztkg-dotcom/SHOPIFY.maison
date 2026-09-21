@@ -57,7 +57,7 @@ Dos detalles de redacción, sacados de Gymshark:
 
 Dawn le mete a la barra **dos flechitas de "anterior / siguiente"** a los costados. En una barra
 fina y rosa como la nuestra quedan apretadas y se ven mal en celular. El CSS para esconderlas está
-en `marca/mm-barra-anuncio.css`: se sigue pudiendo deslizar con el dedo y la rotación automática
+en `marca/mm-barra-anuncio.css` (todavía sin subir: primero hay que crear los bloques en el editor): se sigue pudiendo deslizar con el dedo y la rotación automática
 sigue andando; solo desaparecen los botones.
 
 ---
@@ -239,8 +239,8 @@ de antes en el mismo archivo (`.mm-acc { border-top: 1px solid }` y
 `.mm-acc:last-of-type { border-bottom: 1px solid }`). Si se borran solo las punteadas, **quedan las
 sólidas** y el resultado se ve casi igual, pero peor: líneas enteras en vez de cortadas.
 
-El bloque que las saca todas está en `marca/mm-punteadas-off.css`. Va **al final** de
-`assets/mm-custom.css` para que le gane a las reglas de más arriba.
+El bloque que las saca todas ya está en `tema/assets/mm-cambios.css`, **subido y probado**
+(ver `08-ficha-y-tipografia.md`).
 
 Con las líneas fuera, los acordeones se pegan entre sí. El mismo bloque le suma un poco de aire
 (`padding` en el `summary`) para que se sigan leyendo como una lista.

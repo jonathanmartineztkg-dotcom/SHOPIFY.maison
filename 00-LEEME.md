@@ -24,7 +24,8 @@ lleva la tienda y las campañas.
 | `08-ficha-y-tipografia.md` | **La galería por color**, el botón redondeado, las garantías en una fila y la tipografía nueva |
 | `reportes/` | Los PDF que ya recibió el cliente |
 | `fotos-tienda/` | Las fotos de modelo sin el sello "Ai", listas para subir. Empezar por su `LEEME.md` |
-| `marca/` | Piezas listas para el tema: el redondo de la M, los videos y los bloques de CSS |
+| `marca/` | Piezas de marca: el redondo de la M, los videos y el CSS de la barra de anuncios |
+| `tema/` | **Los archivos del tema ya modificados**, con la estructura real. Ver `08-ficha-y-tipografia.md` |
 
 **Si vas a tocar la tienda, leé primero `03-tienda-diseno.md`, sobre todo la sección "Trampas".**
 Hay dos errores que ya tumbaron o rompieron la tienda una vez.

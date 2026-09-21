@@ -1,30 +1,41 @@
 /* ============================================================
-   MAISON — cambios pedidos el 21/9/2026
-   Va al FINAL de assets/mm-custom.css, todo junto y en este orden.
+   MAISON — cambios del 21/9/2026
+   Se carga después de mm-custom.css, así que le gana sin !important.
    Cada bloque es independiente: se puede borrar uno sin romper los otros.
    ============================================================ */
 
 :root {
-  /* Un solo número para el redondeo. 0 = cuadrado (como estaba),
-     8px = redondeo suave, 999px = pastilla. */
-  --mm-radio: 8px;
+  /* Un solo número para el redondeo de todos los botones.
+     0 = cuadrado (como era), 4px = apenas insinuado, 999px = pastilla. */
+  --mm-radio: 4px;
+
+  /* Las líneas finas de la descripción. Más claras que --mm-hair
+     para que separen sin llamar la atención. */
+  --mm-linea: rgba(23, 17, 15, .09);
 }
 
 /* ------------------------------------------------------------
-   1. El botón del héroe: esquinas redondeadas
+   1. Botones: redondeo sutil, el mismo en todos
    ------------------------------------------------------------ */
 
-.mm-hero__btn {
+.mm-hero__btn,
+.mm-cierre__btn,
+.product-form__submit,
+.shopify-payment-button__button,
+.mm-wa-inline {
   border-radius: var(--mm-radio);
 }
 
-/* El sistema de diseño dice "botones cuadrados". Si el redondeo va a
-   quedarse, tiene que ir en TODOS los botones o se nota el parche.
-   Estas tres líneas alcanzan para que la tienda quede pareja. */
-.mm-cierre__btn,
-.product-form__submit,
-.shopify-payment-button__button {
-  border-radius: var(--mm-radio);
+/* El botón del héroe llegaba de borde a borde y se leía como una barra
+   blanca, no como un botón. Se lo mete para adentro y se le baja el alto
+   para que el bloque no sea tanto más grande que su texto. */
+@media screen and (max-width: 749px) {
+  .mm-hero__btn {
+    align-self: center;
+    width: 100%;
+    max-width: 28rem;
+    min-height: 4.6rem;
+  }
 }
 
 /* ------------------------------------------------------------
@@ -63,8 +74,8 @@
    ------------------------------------------------------------ */
 
 /* Ojo: son CUATRO líneas, no dos. Además de las punteadas hay dos
-   sólidas cargadas antes en este mismo archivo. Si se borran solo las
-   punteadas quedan las sólidas y se ve casi igual. */
+   sólidas cargadas antes en mm-custom.css. Si se borran solo las
+   punteadas, quedan las sólidas y se ve casi igual. */
 .mm-acc,
 .mm-acc:first-of-type,
 .mm-acc:last-of-type {
@@ -72,8 +83,6 @@
   border-bottom: 0;
 }
 
-/* Sin líneas los acordeones se pegan: un poco más de aire para que
-   se sigan leyendo como lista. */
 .mm-acc summary {
   padding: 1.9rem 0;
 }
@@ -82,20 +91,54 @@
 }
 
 /* ------------------------------------------------------------
-   4. Tipografía de los títulos grandes: más alta y más angosta
+   4. Líneas finas en la descripción del producto
    ------------------------------------------------------------
-   Requiere sumar la familia a la URL de Google Fonts en
-   layout/theme.liquid (ver 08-ficha-y-tipografia.md).
-   Se usa SOLO en los títulos grandes. Cormorant itálica sigue siendo
-   la voz de la marca en los acentos chicos, y Figtree el cuerpo.
+   La descripción queda enmarcada arriba y abajo, y cada característica
+   del listado se separa con una línea en vez de una viñeta. Es lo que
+   los acordeones perdieron al sacarles las líneas: estructura de lista.
+   ------------------------------------------------------------ */
+
+.product__description {
+  border-top: 1px solid var(--mm-hair, #e8dcde);
+  border-bottom: 1px solid var(--mm-hair, #e8dcde);
+  padding-bottom: 1.8rem;
+}
+
+.product__description ul {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+}
+
+.product__description li {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--mm-linea);
+}
+.product__description li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.product__description li:last-child {
+  padding-bottom: 0;
+}
+.product__description li > p {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   5. Tipografía de los títulos grandes: más alta y más angosta
+   ------------------------------------------------------------
+   Requiere la familia en la URL de Google Fonts de layout/theme.liquid.
+   El peso de acá y el de esa URL tienen que coincidir: hoy los dos
+   dicen 500. Si se cambia uno, hay que cambiar el otro.
    ------------------------------------------------------------ */
 
 .mm-hero__tit,
 .mm-cierre__tit,
 .mm-ficha__tit {
   font-family: "Barlow Condensed", Figtree, Assistant, -apple-system, "Segoe UI", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.005em;
+  font-weight: 500;
+  letter-spacing: -0.002em;
 }
 
 /* Barlow Condensed es más angosta y de ojo más alto que Figtree, así
@@ -103,7 +146,7 @@
    interlínea, si no el título queda flojo. */
 .mm-hero__tit {
   font-size: 3.9rem;
-  line-height: 0.98;
+  line-height: 1;
 }
 @media screen and (min-width: 750px) {
   .mm-hero__tit {
@@ -112,11 +155,10 @@
 }
 
 /* ------------------------------------------------------------
-   5. Galería: sin flechas cuando hay una sola foto
+   6. Galería: sin flechas cuando hay una sola foto
    ------------------------------------------------------------
-   Con el filtro por color, los colores que no tienen foto de modelo
-   quedan con una sola imagen. La clase la pone
-   snippets/product-media-gallery.liquid.
+   Con el filtro por color, los colores sin foto de modelo quedan con
+   una sola imagen. La clase la pone snippets/product-media-gallery.liquid.
    ------------------------------------------------------------ */
 
 .slider-buttons.mm-sin-deslizar {

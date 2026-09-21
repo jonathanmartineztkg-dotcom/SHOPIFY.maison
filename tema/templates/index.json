@@ -1,0 +1,181 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "mm_hero",
+    "mm_garantias",
+    "mm_fichas",
+    "mm_colores",
+    "mm_cierre"
+  ],
+  "sections": {
+    "mm_hero": {
+      "type": "mm-hero",
+      "settings": {
+        "imagen": "shopify://shop_images/maison-short-leopardo-rosa-modelo.jpg",
+        "titulo": "Sin costuras, sin transparencias",
+        "bajada": "Cintura alta que no se enrolla. Ocho colores para elegir.",
+        "boton_texto": "Comprar el short",
+        "boton_url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo",
+        "imagen_archivo": "mm-portada-rosa.jpg"
+      }
+    },
+    "mm_garantias": {
+      "type": "mm-garantias",
+      "blocks": {
+        "g1": {
+          "type": "garantia",
+          "settings": {
+            "icono": "escudo",
+            "texto": "Garantía de 7 días"
+          }
+        },
+        "g2": {
+          "type": "garantia",
+          "settings": {
+            "icono": "camion",
+            "texto": "Envío gratis"
+          }
+        },
+        "g3": {
+          "type": "garantia",
+          "settings": {
+            "icono": "flecha",
+            "texto": "Sin devolver nada"
+          }
+        },
+        "g4": {
+          "type": "garantia",
+          "settings": {
+            "icono": "candado",
+            "texto": "Pago seguro"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
+      "settings": {}
+    },
+    "mm_fichas": {
+      "type": "mm-fichas",
+      "blocks": {
+        "f1": {
+          "type": "ficha",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-cian-modelo.jpg",
+            "titulo": "Los ocho colores",
+            "enlace_texto": "Verlos todos",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "f2": {
+          "type": "ficha",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-gris-negro-modelo.jpg",
+            "titulo": "¿Cuál es tu talla?",
+            "enlace_texto": "Ver la guía",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "f3": {
+          "type": "ficha",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-cafe-modelo-espalda.jpg",
+            "titulo": "De qué está hecho",
+            "enlace_texto": "Ver el tejido",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "f4": {
+          "type": "ficha",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-purpura-modelo.jpg",
+            "titulo": "Envío y garantía",
+            "enlace_texto": "Cómo funciona",
+            "url": "/policies/shipping-policy"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {}
+    },
+    "mm_colores": {
+      "type": "mm-colores",
+      "blocks": {
+        "c1": {
+          "type": "color",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-rosa-modelo-banco.jpg",
+            "nombre": "Rosa",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "c2": {
+          "type": "color",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-cafe-modelo-frente.jpg",
+            "nombre": "Café",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "c3": {
+          "type": "color",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-purpura-modelo.jpg",
+            "nombre": "Púrpura",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        },
+        "c4": {
+          "type": "color",
+          "settings": {
+            "imagen": "shopify://shop_images/maison-short-leopardo-gris-negro-modelo.jpg",
+            "nombre": "Gris Negro",
+            "url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "producto": "shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo",
+        "titulo": "Elige tu color",
+        "etiqueta": "SIN COSTURAS",
+        "ver_texto": "Ver los ocho colores",
+        "ver_url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+      }
+    },
+    "mm_cierre": {
+      "type": "mm-cierre",
+      "settings": {
+        "producto": "shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo",
+        "titulo": "Hecho para el cuerpo que lo usa",
+        "texto": "Tejido sin costuras laterales, para que no marque ni roce. Cintura alta que se queda en su lugar cuando te mueves. Y opaco de verdad, también a contraluz.",
+        "imagen": "shopify://shop_images/maison-short-leopardo-cafe-modelo-frente.jpg",
+        "boton_texto": "Comprar por",
+        "mostrar_precio": true,
+        "boton_url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo"
+      }
+    }
+  }
+}

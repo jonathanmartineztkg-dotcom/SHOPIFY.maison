@@ -143,8 +143,12 @@
   text-transform: uppercase;
 }
 
+/* El tamaño se ata al ancho de la pantalla. En mayúsculas,
+   "SIN TRANSPARENCIAS" mide 327 px a 32 px de tipografía: entra en un
+   celular de 390 px por 19 px, pero se pasaba en uno de 360, que son
+   muchos. Con clamp entra desde 320 px para arriba. */
 .mm-hero__tit {
-  font-size: 3.2rem;
+  font-size: clamp(2.6rem, 8.4vw, 3.2rem);
   line-height: .96;
   letter-spacing: -.045em;
 }

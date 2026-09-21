@@ -1,0 +1,60 @@
+{% comment %}
+  Portada: héroe con foto a sangre, titular sobre la imagen y un solo botón.
+
+  MAISON 21/9: el título admite una palabra acentuada. Lo que vaya entre
+  asteriscos sale en rosa. Ejemplo: "Sin costuras, sin *transparencias*".
+  Si no hay asteriscos, el título sale entero como siempre.
+{% endcomment %}
+<div class="mm-hero">
+  {%- comment -%} Si hay un archivo del tema cargado, manda sobre la foto elegida. {%- endcomment -%}
+  {%- assign mm_alt = section.settings.titulo | replace: '*', '' -%}
+  {%- if section.settings.imagen_archivo != blank -%}
+    {%- assign mm_a = section.settings.imagen_archivo -%}
+    <img class="mm-hero__img"
+      src="{{ mm_a | asset_img_url: '1200x' }}"
+      srcset="{{ mm_a | asset_img_url: '390x' }} 390w, {{ mm_a | asset_img_url: '600x' }} 600w, {{ mm_a | asset_img_url: '900x' }} 900w, {{ mm_a | asset_img_url: '1200x' }} 1200w, {{ mm_a | asset_img_url: '1800x' }} 1800w"
+      sizes="100vw" width="1800" height="2235"
+      loading="eager" fetchpriority="high" alt="{{ mm_alt | escape }}">
+  {%- elsif section.settings.imagen != blank -%}
+    {{ section.settings.imagen | image_url: width: 1200 | image_tag:
+       loading: 'eager', fetchpriority: 'high', class: 'mm-hero__img',
+       widths: '390,600,900,1200', sizes: '100vw', alt: mm_alt }}
+  {%- endif -%}
+  <div class="mm-hero__txt">
+    {%- if section.settings.titulo != blank -%}
+      <h1 class="mm-hero__tit">
+        {%- assign mm_partes = section.settings.titulo | escape | split: '*' -%}
+        {%- for mm_p in mm_partes -%}
+          {%- assign mm_impar = forloop.index0 | modulo: 2 -%}
+          {%- if mm_impar == 1 -%}
+            <span class="mm-hero__acento">{{ mm_p }}</span>
+          {%- else -%}
+            {{- mm_p -}}
+          {%- endif -%}
+        {%- endfor -%}
+      </h1>
+    {%- endif -%}
+    {%- if section.settings.bajada != blank -%}
+      <p class="mm-hero__baj">{{ section.settings.bajada }}</p>
+    {%- endif -%}
+    {%- if section.settings.boton_texto != blank -%}
+      <a class="mm-hero__btn" href="{{ section.settings.boton_url | default: '#' }}">{{ section.settings.boton_texto }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MM · Héroe",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "imagen", "label": "Foto" },
+    { "type": "text", "id": "imagen_archivo", "label": "Archivo del tema (opcional)", "info": "Nombre de un archivo en assets. Si se completa, reemplaza a la foto." },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Sin costuras, sin *transparencias*", "info": "Lo que va entre asteriscos sale en rosa." },
+    { "type": "text", "id": "bajada", "label": "Bajada", "default": "Cintura alta que no se enrolla. Ocho colores para elegir." },
+    { "type": "text", "id": "boton_texto", "label": "Texto del botón", "default": "Comprar el short" },
+    { "type": "url", "id": "boton_url", "label": "Enlace del botón" }
+  ],
+  "presets": [{ "name": "MM · Héroe" }]
+}
+{% endschema %}

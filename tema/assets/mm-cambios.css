@@ -126,15 +126,123 @@
 }
 
 /* ------------------------------------------------------------
-   5. Tipografía de los títulos: SIN CAMBIOS
+   5. Tipografía de los títulos — opción A
    ------------------------------------------------------------
-   Barlow Condensed se sacó el 21/9 por pedido de Jony. Los títulos
-   vuelven a Figtree 800, exactamente como estaban: no hace falta
-   ninguna regla acá, porque mm-custom.css ya los define.
+   Barlow Condensed se descartó: no se carga ninguna fuente nueva.
+   Esto es solo Figtree, la que ya estaba, en MAYÚSCULAS y apretada.
+   Costo en velocidad: cero.
 
-   Si algún día se retoma, hay que tocar DOS lugares a la vez:
-   este archivo y la URL de Google Fonts de layout/theme.liquid.
+   La fuerza de la referencia no venía de la fuente: venía del tamaño,
+   del interletrado negativo y de las mayúsculas. Eso es todo lo que
+   hay acá.
    ------------------------------------------------------------ */
+
+.mm-hero__tit,
+.mm-cierre__tit,
+.mm-colores__tit {
+  text-transform: uppercase;
+}
+
+.mm-hero__tit {
+  font-size: 3.2rem;
+  line-height: .96;
+  letter-spacing: -.045em;
+}
+
+.mm-cierre__tit {
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.042em;
+}
+
+/* "Elige tu color" dejaba de ser Cormorant itálica y pasa al mismo
+   sistema que los otros dos títulos, como en la maqueta A. */
+.mm-colores__tit {
+  font-family: Figtree, Assistant, -apple-system, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -.038em;
+}
+
+/* La palabra entre asteriscos del título del héroe, en rosa.
+   El span lo arma sections/mm-hero.liquid. */
+.mm-hero__acento {
+  color: var(--mm-rose, #b97c8c);
+}
+
+@media screen and (min-width: 750px) {
+  .mm-hero__tit {
+    font-size: 5.6rem;
+  }
+  .mm-colores__tit {
+    font-size: 3rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   7. El botón de "+" de la sección de colores
+   ------------------------------------------------------------
+   Va dentro de la grilla y ocupa el ancho completo, en celular y en
+   escritorio. Así no queda una tarjeta huérfana al final de una fila
+   de 2 ni de 4. Lo dibuja sections/mm-colores.liquid.
+   ------------------------------------------------------------ */
+
+.mm-colores__mas {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  min-height: 6.4rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--mm-hair, #e8dcde);
+  border-radius: var(--mm-radio);
+  background: transparent;
+  color: var(--mm-ink, #17110f);
+  text-decoration: none;
+  transition: background .15s ease, border-color .15s ease;
+}
+.mm-colores__mas:hover,
+.mm-colores__mas:focus-visible {
+  background: var(--mm-rose-soft, #f6eef0);
+  border-color: var(--mm-rose, #b97c8c);
+  color: var(--mm-ink, #17110f);
+}
+
+.mm-colores__mas-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: var(--mm-ink, #17110f);
+}
+.mm-colores__mas-ico svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--mm-paper, #fdf9f8);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.mm-colores__mas-txt {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* En celular la grilla de colores respiraba poco entre la última fila
+   y el botón. */
+@media screen and (max-width: 749px) {
+  .mm-colores__mas {
+    margin-top: .4rem;
+  }
+}
 
 /* ------------------------------------------------------------
    6. Galería: sin flechas cuando hay una sola foto

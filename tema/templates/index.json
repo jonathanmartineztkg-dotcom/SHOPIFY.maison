@@ -20,7 +20,7 @@
       "type": "mm-hero",
       "settings": {
         "imagen": "shopify://shop_images/maison-short-leopardo-rosa-modelo.jpg",
-        "titulo": "Sin costuras, sin transparencias",
+        "titulo": "Sin costuras, sin *transparencias*",
         "bajada": "Cintura alta que no se enrolla. Ocho colores para elegir.",
         "boton_texto": "Comprar el short",
         "boton_url": "/products/shorts-deportivos-de-cintura-alta-con-estampado-de-leopardo",

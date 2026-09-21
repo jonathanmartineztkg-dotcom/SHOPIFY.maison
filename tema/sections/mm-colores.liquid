@@ -1,0 +1,76 @@
+{% comment %}
+  Portada: tarjetas de color con precio, al estilo de una vidriera.
+  El precio sale del producto elegido, así no queda escrito a mano.
+
+  MAISON 21/9: el enlace de abajo pasó a ser un botón de "+" dentro de la
+  grilla, que ocupa el ancho completo. Usa los mismos dos ajustes de antes
+  (texto y destino), así que no hay nada que volver a cargar en el editor.
+{% endcomment %}
+{%- assign prod = section.settings.producto -%}
+<div class="mm-colores">
+  {%- if section.settings.titulo != blank -%}
+    <h2 class="mm-colores__tit">{{ section.settings.titulo }}</h2>
+  {%- endif -%}
+  <div class="mm-colores__grid">
+    {%- for block in section.blocks -%}
+      <a class="mm-color" href="{{ block.settings.url | default: prod.url | default: '#' }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.imagen != blank -%}
+          {{ block.settings.imagen | image_url: width: 1200 | image_tag:
+             loading: 'lazy', class: 'mm-color__img',
+             widths: '300,500,700,900,1200', sizes: '(min-width: 750px) 25vw, 45vw',
+             alt: block.settings.nombre }}
+        {%- endif -%}
+        {%- if section.settings.etiqueta != blank -%}
+          <span class="mm-color__etq">{{ section.settings.etiqueta }}</span>
+        {%- endif -%}
+        <span class="mm-color__nom">{{ block.settings.nombre }}</span>
+        {%- if prod != blank -%}
+          <span class="mm-color__pre">{{ prod.selected_or_first_available_variant.price | money_with_currency }}</span>
+        {%- endif -%}
+      </a>
+    {%- endfor -%}
+    {%- if section.settings.ver_texto != blank -%}
+      <a class="mm-colores__mas" href="{{ section.settings.ver_url | default: prod.url | default: '#' }}">
+        <span class="mm-colores__mas-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+        </span>
+        <span class="mm-colores__mas-txt">{{ section.settings.ver_texto }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MM · Colores",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "product", "id": "producto", "label": "Producto (para el precio)" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Elige tu color" },
+    { "type": "text", "id": "etiqueta", "label": "Etiqueta sobre el nombre", "default": "SIN COSTURAS" },
+    { "type": "text", "id": "ver_texto", "label": "Texto del botón +", "default": "Ver los ocho colores" },
+    { "type": "url", "id": "ver_url", "label": "Destino del botón +" }
+  ],
+  "blocks": [
+    {
+      "type": "color",
+      "name": "Color",
+      "settings": [
+        { "type": "image_picker", "id": "imagen", "label": "Foto" },
+        { "type": "text", "id": "nombre", "label": "Nombre del color", "default": "Rosa" },
+        { "type": "url", "id": "url", "label": "Enlace" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "MM · Colores",
+    "blocks": [
+      { "type": "color", "settings": { "nombre": "Rosa" } },
+      { "type": "color", "settings": { "nombre": "Café" } },
+      { "type": "color", "settings": { "nombre": "Púrpura" } },
+      { "type": "color", "settings": { "nombre": "Gris claro" } }
+    ]
+  }]
+}
+{% endschema %}

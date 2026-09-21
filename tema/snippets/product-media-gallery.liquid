@@ -115,6 +115,12 @@
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
+    {%- comment -%}
+      MAISON: las dos etiquetas van acá, pegadas al visor, no a una foto.
+      Así quedan arriba de la que se esté viendo, sea cual sea.
+    {%- endcomment -%}
+    {% render 'mm-etiquetas' %}
+
     <ul
       id="Slider-Gallery-{{ section.id }}"
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"

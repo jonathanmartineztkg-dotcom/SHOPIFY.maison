@@ -258,3 +258,199 @@
 .slider-buttons.mm-sin-deslizar {
   display: none;
 }
+
+/* ------------------------------------------------------------
+   8. Las etiquetas de arriba de la galería
+   ------------------------------------------------------------
+   Van pegadas al visor, no a una foto: así quedan arriba de la que
+   se esté viendo. Las dibuja snippets/mm-etiquetas.liquid.
+
+   En vertical, chicas y casi sin redondeo, que es como se pidieron.
+   El verde oliva es el de la referencia.
+   ------------------------------------------------------------ */
+
+media-gallery slider-component {
+  position: relative;
+}
+
+.mm-etiquetas {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
+  pointer-events: none;
+}
+
+.mm-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem .8rem;
+  border-radius: 2px;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mm-etiqueta--clara {
+  background: #ffffff;
+  color: var(--mm-ink, #17110f);
+}
+
+.mm-etiqueta--oferta {
+  background: #454e37;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------
+   9. Los tres tramos: llevas más, pagas menos
+   ------------------------------------------------------------
+   Tres columnas, nada más. Sin "otra cantidad" y sin la fila de 1,
+   que no era una oferta. Lo dibuja snippets/mm-tramos.liquid.
+   ------------------------------------------------------------ */
+
+.mm-tramos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 0 0 1.6rem;
+}
+
+.mm-tramos__cab {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.mm-tramos__tit {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.mm-tramos__sub {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: #6b5c58;
+}
+
+.mm-tramos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+}
+
+.mm-tramo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 8.8rem;
+  padding: 1rem .4rem 1.1rem;
+  border: 1px solid var(--mm-hair, #e8dcde);
+  border-radius: var(--mm-radio);
+  background: transparent;
+  color: var(--mm-ink, #17110f);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.mm-tramo__pct {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .6rem;
+  border-radius: 2px;
+  background: #454e37;
+  color: #ffffff;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .04em;
+}
+
+.mm-tramo__num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.mm-tramo__uni {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mm-tramo[aria-pressed='true'] {
+  background: var(--mm-ink, #17110f);
+  border-color: var(--mm-ink, #17110f);
+  color: var(--mm-paper, #fdf9f8);
+}
+.mm-tramo[aria-pressed='true'] .mm-tramo__pct {
+  background: var(--mm-paper, #fdf9f8);
+  color: var(--mm-ink, #17110f);
+}
+
+.mm-tramos__ahorro {
+  margin: 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--mm-linea);
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--mm-rose, #b97c8c);
+}
+.mm-tramos__ahorro[hidden] {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   10. La parte de abajo de la ficha, como la referencia
+   ------------------------------------------------------------
+   NO hay tipografía nueva: sigue siendo Figtree, la de toda la tienda.
+   Lo que cambia es cómo está usada en los acordeones: más chica, en
+   mayúsculas, con el interletrado abierto y la línea fina que separa
+   cada pestaña. Es lo mismo que ya hace el listado de la descripción.
+   ------------------------------------------------------------ */
+
+.mm-acc {
+  border-top: 0;
+  border-bottom: 1px solid var(--mm-linea);
+}
+.mm-acc:first-of-type {
+  border-top: 1px solid var(--mm-linea);
+}
+.mm-acc:last-of-type {
+  border-bottom: 1px solid var(--mm-linea);
+}
+
+.mm-acc summary {
+  padding: 1.9rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.mm-acc summary:after {
+  width: 7px;
+  height: 7px;
+  border-width: 1.5px;
+}
+
+.mm-wa-inline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}

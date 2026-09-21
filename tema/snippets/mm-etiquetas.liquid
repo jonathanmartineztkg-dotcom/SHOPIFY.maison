@@ -1,0 +1,55 @@
+{% comment %}
+  MAISON — las dos etiquetas que van arriba de la galería.
+
+  Regla de oro: el importe NO se escribe a mano. Se calcula en centavos sobre
+  el precio de la variante elegida y se imprime con el filtro `money`, así que
+  sigue solo al tipo de cambio y a la moneda de cada mercado. Si el short pasa
+  de 29 a 31 dólares, la etiqueta se mueve sola.
+
+  Para cambiar los tramos hay UN solo lugar: mm_tope_pct y mm_tope_unidades
+  de acá abajo, y los mismos dos números en snippets/mm-tramos.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign mm_tope_pct = 30
+  assign mm_tope_unidades = 4
+
+  comment
+    La primera etiqueta. 'auto' = dice NUEVO mientras el producto tenga menos
+    de mm_nuevo_dias días y después pasa sola al texto de abajo, que siempre
+    es cierto. Pon 'siempre' si quieres que diga NUEVO igual.
+  endcomment
+  assign mm_nuevo_modo = 'auto'
+  assign mm_nuevo_dias = 30
+  assign mm_texto_alterno = 'SIN COSTURAS'
+
+  assign mm_precio = product.selected_or_first_available_variant.price
+  if mm_precio == blank or mm_precio == 0
+    assign mm_precio = product.price
+  endif
+  assign mm_ahorro = mm_precio | times: mm_tope_unidades | times: mm_tope_pct | divided_by: 100
+
+  assign mm_ahora = 'now' | date: '%s' | times: 1
+  assign mm_creado = product.created_at | date: '%s' | times: 1
+  assign mm_edad = mm_ahora | minus: mm_creado | divided_by: 86400
+
+  assign mm_es_nuevo = false
+  if mm_nuevo_modo == 'siempre'
+    assign mm_es_nuevo = true
+  elsif mm_nuevo_modo == 'auto' and mm_edad < mm_nuevo_dias
+    assign mm_es_nuevo = true
+  endif
+-%}
+
+{%- if mm_precio > 0 -%}
+  <div class="mm-etiquetas">
+    {%- if mm_es_nuevo -%}
+      <span class="mm-etiqueta mm-etiqueta--clara">Nuevo</span>
+    {%- elsif mm_texto_alterno != blank -%}
+      <span class="mm-etiqueta mm-etiqueta--clara">{{ mm_texto_alterno }}</span>
+    {%- endif -%}
+    <span class="mm-etiqueta mm-etiqueta--oferta">
+      Hasta {{ mm_tope_pct }}% · {{ mm_ahorro | money_without_trailing_zeros }}
+    </span>
+  </div>
+{%- endif -%}

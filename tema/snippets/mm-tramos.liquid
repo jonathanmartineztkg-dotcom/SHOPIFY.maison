@@ -1,0 +1,106 @@
+{% comment %}
+  MAISON — "llevas más, pagas menos": los tres tramos arriba del botón.
+
+  Solo dibuja la escalera y fija la cantidad. El descuento lo aplica Shopify
+  en el carrito con tres descuentos automáticos (cantidad mínima 2, 3 y 4, sin
+  permiso de combinarse). Como no se combinan, Shopify siempre aplica el mejor
+  para el carrito, así que la escalera sale sola.
+
+  Los precios se calculan en centavos y se imprimen con `money`: siguen a la
+  moneda del mercado sin tocar nada.
+
+  Si cambian los tramos, se cambian acá y en snippets/mm-etiquetas.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign mm_form = 'product-form-' | append: section.id
+
+  assign mm_precio = product.selected_or_first_available_variant.price
+  if mm_precio == blank or mm_precio == 0
+    assign mm_precio = product.price
+  endif
+
+  assign mm_cants = '2,3,4' | split: ','
+  assign mm_pcts = '10,20,30' | split: ','
+-%}
+
+{%- if mm_precio > 0 and product.available -%}
+  <div class="mm-tramos" data-mm-tramos>
+    <div class="mm-tramos__cab">
+      <span class="mm-tramos__tit">Llevas más, pagas menos</span>
+      <span class="mm-tramos__sub">Puedes mezclar colores y tallas</span>
+    </div>
+
+    <div class="mm-tramos__grid">
+      {%- for mm_c in mm_cants -%}
+        {%- liquid
+          assign mm_cant = mm_c | times: 1
+          assign mm_pct = mm_pcts[forloop.index0] | times: 1
+          assign mm_lleno = mm_precio | times: mm_cant
+          assign mm_ahorro = mm_lleno | times: mm_pct | divided_by: 100
+          assign mm_total = mm_lleno | minus: mm_ahorro
+          assign mm_unit = mm_total | divided_by: mm_cant
+        -%}
+        <button
+          type="button"
+          class="mm-tramo"
+          aria-pressed="false"
+          data-mm-cant="{{ mm_cant }}"
+          data-mm-ahorro="Llevas {{ mm_cant }} y ahorras {{ mm_ahorro | money_without_trailing_zeros }} · total {{ mm_total | money_without_trailing_zeros }}"
+        >
+          <span class="mm-tramo__pct">−{{ mm_pct }}%</span>
+          <span class="mm-tramo__num">{{ mm_cant }}{% if forloop.last %}+{% endif %}</span>
+          <span class="mm-tramo__uni">{{ mm_unit | money_without_trailing_zeros }} c/u</span>
+        </button>
+      {%- endfor -%}
+    </div>
+
+    <p class="mm-tramos__ahorro" data-mm-ahorro-txt hidden></p>
+
+    <input
+      type="hidden"
+      name="quantity"
+      value="1"
+      form="{{ mm_form }}"
+      data-mm-cantidad
+    >
+  </div>
+
+  <script>
+    (function () {
+      if (window.mmTramosListo) return;
+      window.mmTramosListo = true;
+
+      document.addEventListener('click', function (e) {
+        var boton = e.target.closest('[data-mm-tramos] .mm-tramo');
+        if (!boton) return;
+
+        var caja = boton.closest('[data-mm-tramos]');
+        var campo = caja.querySelector('[data-mm-cantidad]');
+        var aviso = caja.querySelector('[data-mm-ahorro-txt]');
+        var yaEstaba = boton.getAttribute('aria-pressed') === 'true';
+
+        caja.querySelectorAll('.mm-tramo').forEach(function (b) {
+          b.setAttribute('aria-pressed', 'false');
+        });
+
+        if (yaEstaba) {
+          // Segundo toque: se suelta el tramo y se vuelve a una unidad.
+          if (campo) campo.value = '1';
+          if (aviso) {
+            aviso.textContent = '';
+            aviso.hidden = true;
+          }
+          return;
+        }
+
+        boton.setAttribute('aria-pressed', 'true');
+        if (campo) campo.value = boton.dataset.mmCant;
+        if (aviso) {
+          aviso.textContent = boton.dataset.mmAhorro;
+          aviso.hidden = false;
+        }
+      });
+    })();
+  </script>
+{%- endif -%}

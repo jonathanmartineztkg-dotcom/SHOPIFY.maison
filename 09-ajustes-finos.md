@@ -19,16 +19,22 @@ Publicar desde **Tienda online → Temas**. Si algo no gusta, se vuelve publican
 
 ---
 
-## 1. El título, menos negrita
+## 1. El título: Barlow Condensed **se sacó**
 
-**Barlow Condensed pasa de 700 a 500.** Es un salto de dos pesos: de Bold a Medium.
+Se probó primero en 700 y después en 500, y Jony la descartó. **Los títulos volvieron a Figtree
+800, exactamente como estaban.**
 
-El peso está en **dos lugares que tienen que coincidir**: `font-weight` en
-`assets/mm-cambios.css` y `wght@500` en la URL de Google Fonts de `layout/theme.liquid`.
-Si se cambia uno sin el otro, el navegador falsea el grosor y se ve sucio.
+Se quitó de los dos lugares donde vivía: el bloque de tipografía de `assets/mm-cambios.css` —
+incluidos los tamaños de 3,9 y 6,6 rem, que solo existían para compensar que una condensada se ve
+más chica— y la familia en la URL de Google Fonts de `layout/theme.liquid`. La tienda vuelve a
+cargar solo Figtree y Cormorant.
 
-El tamaño se mantiene en 3,9 rem (celular) y 6,6 rem (escritorio): al ser más liviana, el título
-aguanta el tamaño sin pesar.
+Queda un comentario en el CSS avisando que, si algún día se retoma, hay que tocar **los dos lugares
+a la vez**: si el peso del CSS y el de la URL no coinciden, el navegador falsea el grosor y se ve
+sucio.
+
+Las tres direcciones tipográficas que quedaron sobre la mesa están en el lienzo
+`Maison — tres tipografías para la home`.
 
 ## 2. Las fotos de la home, con modelo
 
@@ -94,6 +100,7 @@ Sobre la vista previa del tema nuevo, no supuesto:
 - Los **8 colores** uno por uno: cada uno sigue mostrando solo sus fotos, modelo primero y producto
   al final. Azul, gris claro y gris oscuro con una sola foto y sin flechas.
 - La home **no carga ninguna foto de short suelto**: las 6 que trae son todas de modelo.
-- La URL de Google Fonts pide `wght@500`, y el CSS servido dice `font-weight:500`. Coinciden.
+- La página ya no menciona Barlow por ningún lado, y el CSS servido no trae ninguna regla de
+  tipografía. La URL de Google Fonts volvió a pedir solo Figtree y Cormorant.
 - Las 6 reglas nuevas llegaron al CSS servido, que Shopify minifica.
 - La descripción del producto tiene sus 4 `<li>`, que son los que reciben los separadores.

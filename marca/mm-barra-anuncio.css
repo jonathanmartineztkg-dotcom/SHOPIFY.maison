@@ -1,0 +1,60 @@
+/* ============================================================
+   Barra de anuncios con carrusel.
+   Va al final de assets/mm-custom.css.
+
+   Dawn ya hace el carrusel solo cuando hay más de un bloque:
+   no hay que tocar sections/announcement-bar.liquid.
+   Esto es solo el acomodo visual.
+   ============================================================ */
+
+/* Las flechitas de anterior/siguiente aprietan la barra y en celular
+   se ven mal. Se esconden: el deslizar con el dedo y la rotación
+   automática siguen funcionando igual. */
+.announcement-bar-slider .slider-button {
+  display: none;
+}
+
+/* Sin los botones, el riel queda descentrado: se le saca el lugar
+   que Dawn les reservaba. */
+.announcement-bar-slider {
+  display: block;
+}
+.announcement-bar-slider .slider {
+  margin: 0;
+  padding: 0;
+}
+
+/* El mensaje, centrado y en una sola línea. Si un texto se pasa de
+   largo, se corta con puntos en vez de romper la altura de la barra
+   (que movería toda la página hacia abajo). */
+.announcement-bar__message {
+  padding: 0 1.2rem;
+  text-align: center;
+}
+.announcement-bar__message > span {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* El enlace no se subraya: la flecha que Dawn agrega ya avisa que
+   se puede tocar. */
+.announcement-bar__link {
+  text-decoration: none;
+}
+.announcement-bar__link:hover .announcement-bar__message > span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* En celular el mensaje entra más justo. */
+@media screen and (max-width: 749px) {
+  .announcement-bar__message {
+    padding: 0 .8rem;
+    font-size: 1.15rem;
+    letter-spacing: .08em;
+  }
+}

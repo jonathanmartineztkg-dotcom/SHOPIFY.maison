@@ -1,4 +1,7 @@
-# Fotos de modelo — listas para subir
+# Fotos de modelo — las que entraron a la tienda
+
+> **Estado al 21/9: las 6 ya están subidas a la tienda**, con su texto alternativo y asignadas a
+> las variantes de su color. Lo de abajo queda como registro de qué es cada una y de lo que falta.
 
 Son las fotos que estaban en la raíz del repo (`Photorealistic Short(NN).png` y
 `model_reclining_podium_cyan_leopard_shorts.png`), **sin el sello "Ai"** que traían en la esquina
@@ -35,8 +38,8 @@ el púrpura es `purpura` y no `azul`, y el gris es `gris-negro` (manchas casi ne
 ## Cómo entran en el cambio 1 de `05-proximos-cambios.md`
 
 El cambio 1 ("al elegir un color, que aparezca primero una modelo con ese color") necesita que cada
-foto lleve el nombre del color en el **texto alternativo**. Hoy las 10 fotos del producto lo tienen
-**vacío** — verificado contra la tienda. Al subir estas, cargar:
+foto lleve el nombre del color en el **texto alternativo**. Estaban las 10 vacías; **ya se cargaron
+los 16 textos** (estos 6 más los 10 que ya estaban). Los que quedaron:
 
 | Foto | Texto alternativo |
 |---|---|
@@ -47,12 +50,17 @@ foto lleve el nombre del color en el **texto alternativo**. Hoy las 10 fotos del
 | gris negro | `Short de leopardo color Gris Negro, vista con modelo` |
 | cian | `Short de leopardo color Cian, vista con modelo` |
 
-Y ponerle también el suyo a las 8 fotos limpias que ya están
-(`Short de leopardo color Azul, foto de producto`, etc.).
+A las 8 fotos limpias que ya estaban se les cargó el suyo con el mismo criterio:
+`Short de leopardo color Azul, foto de producto`, y así con cada color.
 
-Después, asignar la foto de modelo como foto de la variante de ese color, en las 4 tallas.
-Acordarse del requisito de `05-proximos-cambios.md`: **las 32 variantes tienen que tener foto
-asignada**, si no `updateMedia` no hace nada y la galería no cambia al elegir el color.
+**Hecho:** la foto de modelo quedó asignada a las 4 tallas de cada uno de los 5 colores que la
+tienen — 20 variantes. Azul, gris claro y gris oscuro siguen con su foto limpia, así que las 32
+variantes tienen foto y se cumple el requisito de `05-proximos-cambios.md`
+(`updateMedia` no hace nada si una variante no tiene foto).
+
+**Queda pendiente decidir:** café y rosa ahora tienen **dos** fotos de modelo cada uno (la vieja de
+1600×2000 y la nueva). Cuando se programe el filtro por color habrá que quedarse con una, porque el
+plan dice dos fotos por color: modelo + limpia.
 
 ## Lo que todavía falta
 

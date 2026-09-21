@@ -1,6 +1,6 @@
 # Resumen general — qué se hizo y dónde estamos
 
-## Estado hoy (20 de septiembre de 2026)
+## Estado hoy (21 de septiembre de 2026)
 
 - **2 ventas** desde los anuncios: $58,68 (16/9) y $29,34 (19/9) → **$88,02 USD**.
 - **$68,55 USD invertidos** en Meta en la campaña actual.
@@ -62,6 +62,16 @@
   no un video) y el video queda para el Reel y la portada de Facebook. Todo en `marca/` y
   explicado en `06-logo-redondo.md`.
 
+### 21/9 — las fotos entraron a la tienda
+- Las 6 fotos de modelo **ya están subidas** al producto, con su texto alternativo cargado.
+- Se les asignó la foto de modelo a las **20 variantes** de los 5 colores que la tienen
+  (café, rosa, púrpura, cian y gris negro). Azul, gris claro y gris oscuro siguen con la foto limpia.
+- Se cargó el texto alternativo también en las **10 fotos que ya estaban** (venían todas vacías).
+  Con eso queda destrabado el filtro de galería por color del cambio 1.
+- La galería del producto pasó de 10 a **16 fotos**. Se van a ver todas hasta que se programe el
+  filtro por color.
+- Propuestas para la home, la barra de arriba con carrusel y el descuento: `07-home-y-banner.md`.
+
 ## Lo que se aprendió (vale para lo que venga)
 
 1. **El mensaje que vende es la garantía**: "si no te queda, te devolvemos tu dinero".
@@ -79,5 +89,7 @@
 - 4 páginas heredadas vacías publicadas (`/pages/the-maison` dice "Editorial copy pending").
 - El botón flotante de WhatsApp dice "Escribinos" (voseo). **No se toca** hasta que lo diga Jony.
 - Cambios de diseño nuevos: ver `05-proximos-cambios.md`.
-- Subir las 6 fotos de `fotos-tienda/` y cargarles el texto alternativo (hoy las 10 fotos del
-  producto lo tienen vacío). Instalar el redondo de la M en el tema: ver `06-logo-redondo.md`.
+- Instalar el redondo de la M en el tema: ver `06-logo-redondo.md`.
+- Decidir el descuento (A, B o C de `07-home-y-banner.md`) **con el cliente**: toca el margen.
+- Programar el filtro de galería por color: ya están los textos alternativos, faltan las 3 fotos
+  de modelo de azul, gris claro y gris oscuro.

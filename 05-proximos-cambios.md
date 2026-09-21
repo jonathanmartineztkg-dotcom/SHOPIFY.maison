@@ -61,6 +61,10 @@ Al elegir un color, hoy la galería salta a la foto limpia de ese color, pero si
 
 ## 2. Sacar algunas punteadas
 
+> **Actualizado el 20/9:** Jony pidió sacar **las de abajo** (las de los acordeones), que en la
+> tabla de acá aparecían como "dejar". El CSS exacto, y la trampa de las dos líneas sólidas que
+> quedan escondidas debajo, están en `07-home-y-banner.md` y en `marca/mm-punteadas-off.css`.
+
 Hoy hay 5 líneas punteadas en la ficha (detalle en `03-tienda-diseno.md`, sección "Punteadas").
 
 **Propuesta:**

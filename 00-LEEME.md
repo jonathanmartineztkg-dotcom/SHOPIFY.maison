@@ -1,7 +1,7 @@
 # Maison Meszarics — carpeta para compartir
 
 Material para que otra persona (u otra sesión de Claude) retome el trabajo sin empezar de cero.
-Actualizado al **20 de septiembre de 2026**.
+Actualizado al **21 de septiembre de 2026**.
 
 ## Qué es el proyecto
 
@@ -20,9 +20,10 @@ lleva la tienda y las campañas.
 | `04-reportes-recientes.md` | Números al día y los PDF entregados al cliente |
 | `05-proximos-cambios.md` | Lo que se quiere cambiar en la tienda, con la mejor forma de hacerlo y lo que hay que decidir antes |
 | `06-logo-redondo.md` | **El redondo de la M**: cómo se hace, dónde va y qué falta decidir |
+| `07-home-y-banner.md` | **La home y la barra de arriba**: el carrusel, el descuento del 30 %, el héroe y las punteadas |
 | `reportes/` | Los PDF que ya recibió el cliente |
 | `fotos-tienda/` | Las fotos de modelo sin el sello "Ai", listas para subir. Empezar por su `LEEME.md` |
-| `marca/` | Las piezas del redondo de la M: SVG, snippet del tema, PNG de perfil y el video |
+| `marca/` | Piezas listas para el tema: el redondo de la M, los videos y los bloques de CSS |
 
 **Si vas a tocar la tienda, leé primero `03-tienda-diseno.md`, sobre todo la sección "Trampas".**
 Hay dos errores que ya tumbaron o rompieron la tienda una vez.

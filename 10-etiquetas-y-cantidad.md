@@ -160,3 +160,58 @@ borrador trae las dos tandas juntas: la del título, las fotos de modelo y el re
 
 Los textos de los acordeones (`mm-product-info.liquid`) están en voseo — "medí", "comparalas",
 "confirmás", "recibís", "escribinos" — y la tienda vende a México. Hay que pasarlos a tuteo.
+
+---
+
+# Arreglos del 22/9
+
+Jony publicó **"Maison — ajustes 21/9 (2)"**, así que la tienda ya tiene las etiquetas y los
+tramos. Estos arreglos van en un borrador nuevo:
+
+| | |
+|---|---|
+| A publicar | **"Maison — arreglos 22/9"**, ID `153553567834` |
+| Vista previa | `https://maisonmeszarics.com/?preview_theme_id=153553567834` |
+| En vivo ahora | `Maison — ajustes 21/9 (2)` (`153536299098`) |
+
+## Qué se arregló
+
+| Pedido | Qué pasaba | Qué se hizo |
+|---|---|---|
+| Faltaba una línea abajo de "Guía de tallas" | El bloque 3 tenía `.mm-acc:first-of-type { border-bottom: 0 }`, con más peso que el `.mm-acc { border-bottom: 1px }` del bloque 10. Era la única pestaña sin línea. | Se sacó. Los bordes los define un solo bloque. |
+| Las pestañas se veían sueltas | 15 px de margen arriba y abajo de cada una, o sea 30 px entre la línea y el texto siguiente. | `margin: 0`. Ahora se apoyan en la línea, como la referencia. |
+| El verde no gustaba | — | `--mm-rojo: #9f2532`, en la etiqueta de oferta y en los tres tramos. 7,3:1 sobre blanco. |
+| Las etiquetas sin animación | — | Entran con medio segundo de opacidad y 4 px de recorrido; la de la oferta 0,12 s después. Con "menos movimiento" activado no se anima nada. |
+| Las etiquetas se trepaban arriba del encabezado | El encabezado pegajoso está en `z-index: 3` y la etiqueta también, y la etiqueta va después en el documento. | El visor de la galería pasa a `z-index: 0`, que le arma su propio contexto de apilado, y la etiqueta baja a 1. Ya no puede salirse. |
+| "Envío gratis" no estaba al medio | 14 px a la línea de arriba y 30 a la de abajo. Y las dos líneas eran distintas: una punteada y una rosa. | 1,8 rem de relleno arriba y abajo, cero margen entre las dos, y las dos líneas iguales. **Medido: 19 px arriba, 18 abajo.** |
+| El botón de WhatsApp pegado arriba | 14 px arriba y 70 abajo. | 4,8 rem arriba. **Medido: 48 y 48.** |
+| El botón del héroe centrado en celular | `align-self: center`. | `flex-start`. **Medido: el título arranca en x=22 y el botón también.** |
+| "Elige tu color" como carrusel | Era una grilla de 2×2. | Scroll con imán, sin JavaScript. Tarjetas de 217 px y se asoma la siguiente. El botón de "+" salió de la grilla para no viajar como una tarjeta más. |
+
+## La trampa que costó dos vueltas
+
+`mm-custom.css` tiene reglas colgadas de `.product__info-container` — por ejemplo
+`.product__info-container .mm-shipline { margin-top: .8rem }` — y además **las hojas de sección de
+Dawn se cargan después de `mm-cambios.css`**. Un selector de una sola clase no les gana aunque esté
+más abajo en el archivo.
+
+Se vio porque el CSS servido tenía la regla nueva y el navegador seguía calculando el valor viejo.
+Los bloques 12 y 13 repiten `.product__info-container` (y `.rte` en la descripción, para desempatar
+con `.product__info-container .product__description { margin: 2.5rem 0 }`, que va después).
+
+**Si un cambio no aparece y el CSS servido lo tiene, es esto.** Se mide con el navegador, no
+leyendo el archivo.
+
+## Cómo se verificó
+
+Con Chromium a 390 px sobre la vista previa, midiendo `getBoundingClientRect` y
+`getComputedStyle` de cada elemento, no leyendo el CSS. Dos detalles del entorno que hicieron
+perder tiempo:
+
+- El navegador no confía en la CA del proxy, así que cada pedido lo hace Node, que sí la trae.
+- Shopify redirige `?preview_theme_id=` a la URL canónica y deja la vista previa en una cookie de
+  sesión. Si se sigue el redirect sin guardar esa cookie, **se termina midiendo el tema publicado
+  creyendo que es el borrador**. Pasó, y por eso parecía que nada cambiaba.
+
+Lo único que no se pudo probar así es el gesto de bajar y volver a subir que hace aparecer el
+encabezado pegajoso: headless no lo dispara. El apilado sí está verificado.

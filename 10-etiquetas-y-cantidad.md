@@ -103,3 +103,60 @@ Los cinco diseños del lienzo la reutilizan tal cual en los renglones de totales
 | **E** | La ficha entera a 390 px con todo junto y funcionando: se toca la cantidad y se mueven a la vez la etiqueta de arriba, el total y el botón. |
 
 Paleta y texto son decisiones separadas: el oliva de A se puede usar con el texto de B y al revés.
+
+---
+
+# Lo que quedó hecho (21/9, tercera tanda)
+
+Todo está en el tema **"Maison — ajustes 21/9 (2)"** (`153536299098`), **sin publicar**.
+Vista previa: `https://maisonmeszarics.com/?preview_theme_id=153536299098`
+
+## Archivos
+
+| Archivo | Qué hace |
+|---|---|
+| `snippets/mm-etiquetas.liquid` | Las dos pastillas. En vertical, 9 px de letra, 2 px de redondeo. |
+| `snippets/mm-tramos.liquid` | Los tres tramos y el input oculto que fija la cantidad. |
+| `snippets/product-media-gallery.liquid` | Renderiza las etiquetas **dentro del visor**, no de una foto. |
+| `assets/mm-cambios.css` | Bloques 8 (etiquetas), 9 (tramos) y 10 (la parte de abajo). |
+| `templates/product.json` | El bloque `mm_tramos` entra antes de `buy_buttons`. |
+
+**Verificado sobre la vista previa**, no sobre el código: las tres tarjetas salen con
+`$449.10 / $399.20 / $349.30 c/u` y la etiqueta con `Hasta 30% · $598.80`. Los números cambian solos
+con el mercado: ese curl salió desde fuera de México y dio $499 la unidad en vez de $508.
+
+## Los descuentos, ya creados y activos
+
+| Nombre | Mínimo | Valor | ID |
+|---|---|---|---|
+| Llevando 2 — 10% | 2 | 10 % | `1606992855130` |
+| Llevando 3 — 20% | 3 | 20 % | `1606992920666` |
+| Llevando 4 o más — 30% | 4 | 30 % | `1607044005978` |
+
+Los tres con `combinesWith: {productDiscounts: false, orderDiscounts: false, shippingDiscounts: true}`,
+así que **no se suman entre ellos** y Shopify aplica el mejor. Se apagan desde
+Descuentos en el admin si el margen no da.
+
+## Dos cosas para saber
+
+1. **La primera pastilla dice SIN COSTURAS, no NUEVO.** El producto es del 11/8: tiene 41 días. En
+   `mm-etiquetas.liquid` está `mm_nuevo_modo = 'auto'`, que muestra NUEVO solo los primeros 30 días.
+   Cambiando esa palabra por `'siempre'` dice NUEVO igual, pero es una afirmación falsa en la ficha.
+2. **Ningún tramo viene preseleccionado.** El input oculto arranca en 1: quien no toca nada compra
+   uno. Si se quiere preseleccionar el de 2, es cambiar el `value="1"` del input.
+
+## Lo que no se pudo hacer
+
+**Publicar el tema.** La política de seguridad de la conexión con Shopify bloquea `themePublish`
+entero, con este motivo textual: *"Publishing a theme is blocked — making a theme live must be done
+manually in Shopify admin to prevent accidental storefront changes."* También bloquea escribir sobre
+el tema **en vivo**, que es la razón por la que hay un borrador y no se edita directo sobre el
+publicado.
+
+Lo publica Jony desde **Tienda online → Temas → "Maison — ajustes 21/9 (2)" → Publicar**. Ese
+borrador trae las dos tandas juntas: la del título, las fotos de modelo y el redondeo, y esta.
+
+## Pendiente aparte
+
+Los textos de los acordeones (`mm-product-info.liquid`) están en voseo — "medí", "comparalas",
+"confirmás", "recibís", "escribinos" — y la tienda vende a México. Hay que pasarlos a tuteo.

@@ -568,3 +568,35 @@ media-gallery slider-component {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* ------------------------------------------------------------
+   12. Los mismos arreglos, con el peso suficiente
+   ------------------------------------------------------------
+   Trampa que costó una vuelta entera: `mm-custom.css` tiene reglas
+   colgadas de `.product__info-container`, y las hojas de sección de Dawn
+   se cargan DESPUÉS de este archivo. Un selector de una sola clase acá no
+   les gana aunque esté más abajo. Por eso estas cuatro repiten el
+   contenedor: no es adorno, es lo que las hace valer.
+   ------------------------------------------------------------ */
+
+.product__info-container .mm-shipline {
+  margin: 2rem 0 0;
+  padding: 1.8rem 0 0;
+}
+
+.product__info-container .product__description {
+  margin-top: 1.8rem;
+  padding-top: 1.8rem;
+}
+
+/* Las pestañas van pegadas una debajo de la otra, separadas solo por la
+   línea. Con 15 px de margen arriba y abajo quedaban 30 px de aire entre
+   la línea y el texto de la siguiente, y se leían sueltas. */
+.product__info-container .mm-acc {
+  margin: 0;
+}
+
+.product__info-container .mm-wa-inline {
+  margin-top: 4rem;
+  margin-bottom: 0;
+}

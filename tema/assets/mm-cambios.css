@@ -600,10 +600,9 @@ media-gallery slider-component {
 
 .product__info-container .mm-wa-inline {
   /* Medido sobre la vista previa: de la última pestaña al botón había
-     14 px y del botón al bloque rosa 49. Con 5,7 rem arriba quedan 49 y
-     49. Son 5,7 y no 4,9 porque el margen se come 8 px al colapsar con
-     el contenedor. */
-  margin-top: 5.7rem;
+     14 px y del botón al bloque rosa 70. Con 4,8 rem quedan 48 arriba y
+     48 abajo. */
+  margin-top: 4.8rem;
   margin-bottom: 0;
 }
 

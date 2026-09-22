@@ -215,3 +215,41 @@ perder tiempo:
 
 Lo único que no se pudo probar así es el gesto de bajar y volver a subir que hace aparecer el
 encabezado pegajoso: headless no lo dispara. El apilado sí está verificado.
+
+---
+
+# Carrusel y encuadres (22/9, tercera vuelta)
+
+Jony publicó "Maison — arreglos 22/9", así que hay borrador nuevo otra vez:
+
+| | |
+|---|---|
+| A publicar | **"Maison — carrusel 22/9"**, ID `153554714714` |
+| Vista previa | `https://maisonmeszarics.com/?preview_theme_id=153554714714` |
+
+## Qué cambió
+
+- **El "Ver los ocho colores" dejó de ser una sección aparte.** Ahora es la última tarjeta del
+  carrusel, con borde punteado y el mismo alto que las demás. En escritorio sigue siendo la fila
+  entera abajo de la grilla.
+- **Las tarjetas crecieron** del 62 % al 74 % del ancho de la pantalla: de 242 a 259 px de foto,
+  con 324 px de alto.
+
+## Los encuadres: tres recortes distintos, un solo problema
+
+Ninguna foto estaba mal tomada. Las seis fotos de modelo son de cuerpo entero, con la cara y el
+short completos. Lo que cortaba era el CSS.
+
+| Dónde | Qué pasaba | Qué se hizo |
+|---|---|---|
+| Tarjetas de color de la home | `aspect-ratio: 1/1` con `object-fit: cover` sobre fotos de 4:5 → se comía el 20 % del alto, 10 % arriba y 10 % abajo. Justo la frente y el short. | `aspect-ratio: 4/5`, que es el formato real. No recorta nada. |
+| Fichas de la home | Lo mismo. | Lo mismo. |
+| Galería de la ficha de producto | La foto de producto es **cuadrada** y la caja es 4:5, así que `cover` se comía el 10 % de cada lado: las dos aberturas de las piernas quedaban cortadas. | `object-fit: contain`. El short entra entero, con el fondo rosa de la marca rellenando arriba y abajo — que es casi el mismo tono que el fondo de la foto, así que ni se nota. |
+
+**Trampa de la galería:** el ajuste "Recorte de la imagen" de la sección no servía para nada.
+`mm-custom.css` fuerza `object-fit: cover !important` sobre las fotos de la galería, así que lo que
+se elija en el editor da igual. Hay que repetir el selector entero y el `!important` para ganarle.
+Está en el bloque 15 de `mm-cambios.css`.
+
+Las fotos de modelo, que ya son 4:5, llenan la caja exactamente igual que antes: para ellas `contain`
+y `cover` dan el mismo resultado. Solo cambia la foto de producto suelta, que era la que se cortaba.

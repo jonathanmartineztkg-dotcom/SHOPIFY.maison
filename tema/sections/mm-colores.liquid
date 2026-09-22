@@ -29,20 +29,20 @@
         {%- endif -%}
       </a>
     {%- endfor -%}
+    {%- comment -%}
+      MAISON 22/9 (segunda vuelta): el "+" es el último slide del carrusel,
+      no un bloque aparte debajo. Va adentro de la grilla y es la tarjeta
+      con la que termina el recorrido.
+    {%- endcomment -%}
+    {%- if section.settings.ver_texto != blank -%}
+      <a class="mm-colores__mas" href="{{ section.settings.ver_url | default: prod.url | default: '#' }}">
+        <span class="mm-colores__mas-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+        </span>
+        <span class="mm-colores__mas-txt">{{ section.settings.ver_texto }}</span>
+      </a>
+    {%- endif -%}
   </div>
-  {%- comment -%}
-    MAISON 22/9: el botón de "+" salió de la grilla. Ahora la grilla es un
-    carrusel en celular y el botón tiene que quedarse quieto abajo, no
-    viajar como una tarjeta más.
-  {%- endcomment -%}
-  {%- if section.settings.ver_texto != blank -%}
-    <a class="mm-colores__mas" href="{{ section.settings.ver_url | default: prod.url | default: '#' }}">
-      <span class="mm-colores__mas-ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
-      </span>
-      <span class="mm-colores__mas-txt">{{ section.settings.ver_texto }}</span>
-    </a>
-  {%- endif -%}
 </div>
 
 {% schema %}

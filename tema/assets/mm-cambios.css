@@ -562,10 +562,12 @@ media-gallery slider-component {
 }
 
 /* Fuera de la grilla, el botón de "+" ya no necesita ocupar una fila
-   entera de la grilla: es un hermano más de la columna. */
+   entera de la grilla: es un hermano más de la columna y se estira solo.
+   Ojo con ponerle `width: 100%`: con los 2 rem de margen a cada lado se
+   pasaba 20 px del ancho de la pantalla y la página se iba de costado. */
 .mm-colores__mas {
   grid-column: auto;
-  width: 100%;
+  width: auto;
   box-sizing: border-box;
 }
 

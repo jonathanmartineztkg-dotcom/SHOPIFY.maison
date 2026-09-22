@@ -600,3 +600,28 @@ media-gallery slider-component {
   margin-top: 4rem;
   margin-bottom: 0;
 }
+
+/* ------------------------------------------------------------
+   13. La línea de envío, centrada de verdad
+   ------------------------------------------------------------
+   `mm-custom.css` cierra con
+   `.product__info-container .product__description { margin: 2.5rem 0 }`,
+   que empata en peso con el bloque 12 y va después, así que gana. Se le
+   suma `.rte`, que la descripción ya trae, para desempatar.
+
+   La cuenta: la línea de arriba es el borde de .mm-shipline y la de abajo
+   es el borde de .product__description. Con 1,8 rem de relleno arriba y
+   abajo de la primera, y cero margen entre las dos, el texto queda a la
+   misma distancia de las dos líneas. Los 2,5 rem de abajo de la
+   descripción se mantienen: eso separa la descripción de lo que sigue.
+   ------------------------------------------------------------ */
+
+.product__info-container .mm-shipline {
+  padding-bottom: 1.8rem;
+}
+
+.product__info-container .product__description.rte {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  padding-top: 1.8rem;
+}

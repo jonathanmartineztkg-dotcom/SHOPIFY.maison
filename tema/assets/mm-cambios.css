@@ -12,6 +12,11 @@
   /* Las líneas finas de la descripción. Más claras que --mm-hair
      para que separen sin llamar la atención. */
   --mm-linea: rgba(23, 17, 15, .09);
+
+  /* El rojo de las etiquetas y de los tramos. Es un rojo profundo, del
+     mismo lado del círculo que el rosa de la marca, no un rojo de alerta.
+     Sobre blanco da 7,3:1 de contraste. */
+  --mm-rojo: #9f2532;
 }
 
 /* ------------------------------------------------------------
@@ -31,7 +36,7 @@
    para que el bloque no sea tanto más grande que su texto. */
 @media screen and (max-width: 749px) {
   .mm-hero__btn {
-    align-self: center;
+    align-self: flex-start;
     width: 100%;
     max-width: 28rem;
     min-height: 4.6rem;
@@ -76,12 +81,10 @@
 /* Ojo: son CUATRO líneas, no dos. Además de las punteadas hay dos
    sólidas cargadas antes en mm-custom.css. Si se borran solo las
    punteadas, quedan las sólidas y se ve casi igual. */
-.mm-acc,
-.mm-acc:first-of-type,
-.mm-acc:last-of-type {
-  border-top: 0;
-  border-bottom: 0;
-}
+/* OJO: acá vivía un `.mm-acc:first-of-type { border-bottom: 0 }`. Tenía más
+   peso que el `.mm-acc { border-bottom: 1px }` del bloque 10, así que la
+   primera pestaña —Guía de tallas— era la única que se quedaba sin línea
+   abajo. Los bordes los define el bloque 10 y nadie más. */
 
 .mm-acc summary {
   padding: 1.9rem 0;
@@ -269,15 +272,19 @@
    El verde oliva es el de la referencia.
    ------------------------------------------------------------ */
 
+/* `z-index: 0` acá es a propósito: le arma al visor su propio contexto de
+   apilado, así las etiquetas no pueden treparse arriba del encabezado
+   pegajoso (que está en z-index 3) cuando se baja y se vuelve a subir. */
 media-gallery slider-component {
   position: relative;
+  z-index: 0;
 }
 
 .mm-etiquetas {
   position: absolute;
   top: 1.2rem;
   left: 1.2rem;
-  z-index: 3;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -304,7 +311,7 @@ media-gallery slider-component {
 }
 
 .mm-etiqueta--oferta {
-  background: #454e37;
+  background: var(--mm-rojo);
   color: #ffffff;
 }
 
@@ -370,7 +377,7 @@ media-gallery slider-component {
   align-items: center;
   padding: .3rem .6rem;
   border-radius: 2px;
-  background: #454e37;
+  background: var(--mm-rojo);
   color: #ffffff;
   font-size: .9rem;
   font-weight: 800;
@@ -453,4 +460,111 @@ media-gallery slider-component {
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   11. Arreglos del 22/9
+   ------------------------------------------------------------ */
+
+/* --- 11.a  Las etiquetas entran con una animación mínima ---------------
+   Medio segundo, cuatro píxeles de recorrido y nada más. La de la oferta
+   entra un pelo después que la otra, así se leen en orden en vez de
+   aparecer las dos de golpe. Quien tenga el sistema en "menos movimiento"
+   no ve ninguna animación. */
+
+@keyframes mm-etiqueta-entra {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mm-etiqueta {
+  animation: mm-etiqueta-entra .5s cubic-bezier(.2, .7, .3, 1) both;
+}
+.mm-etiqueta--oferta {
+  animation-delay: .12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-etiqueta {
+    animation: none;
+  }
+}
+
+/* --- 11.b  La línea de envío, centrada entre sus dos líneas ------------
+   Estaba a 13 px de la de arriba y a 30 px de la de abajo, por eso se
+   veía corrida. Ahora hay 18 px de cada lado. Y las dos líneas son la
+   misma: la fina de siempre, no una punteada y una rosa. */
+
+.mm-shipline {
+  margin: 2rem 0 0;
+  padding: 1.8rem 0 0;
+  border-top: 1px solid var(--mm-linea);
+}
+
+.product__description {
+  margin-top: 1.8rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--mm-linea);
+  border-bottom: 1px solid var(--mm-linea);
+}
+
+/* --- 11.c  El botón de WhatsApp, con aire parejo ----------------------
+   Tenía 14 px arriba y 70 abajo. Se le sube el de arriba para que el
+   bloque no quede pegado a la última pestaña. */
+
+.mm-wa-inline {
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+/* --- 11.d  "Elige tu color" pasa a ser un carrusel en celular ---------
+   Scroll nativo con imán: no hace falta JavaScript, el dedo ya sabe
+   hacerlo y el teclado también. Se asoma la tarjeta siguiente, que es lo
+   que le avisa a la gente que hay más de las que entran.
+   En escritorio sigue siendo la grilla de cuatro. */
+
+@media screen and (max-width: 749px) {
+  .mm-colores {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mm-colores__tit,
+  .mm-colores__mas {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .mm-colores__grid {
+    display: flex;
+    gap: 1.2rem;
+    padding: .2rem 2rem 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 2rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mm-colores__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mm-colores__grid > .mm-color {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+}
+
+/* Fuera de la grilla, el botón de "+" ya no necesita ocupar una fila
+   entera de la grilla: es un hermano más de la columna. */
+.mm-colores__mas {
+  grid-column: auto;
+  width: 100%;
+  box-sizing: border-box;
 }

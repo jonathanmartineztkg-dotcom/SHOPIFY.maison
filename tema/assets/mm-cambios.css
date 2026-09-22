@@ -673,3 +673,25 @@ media-gallery slider-component {
     grid-column: 1 / -1;
   }
 }
+
+/* ------------------------------------------------------------
+   15. La galería de la ficha tampoco recorta
+   ------------------------------------------------------------
+   El ajuste "media_fit: contain" de la sección no alcanzaba: mm-custom.css
+   fuerza `object-fit: cover !important` sobre las fotos de la galería, así
+   que el ajuste del editor no hacía nada. Hay que repetir el selector
+   entero y el !important para ganarle.
+
+   Qué cambia: la foto de producto es cuadrada y la caja de la galería es
+   4:5, así que cover se comía el 10 % de cada lado, justo las aberturas de
+   las piernas. Las fotos de modelo ya son 4:5 y llenan la caja igual que
+   antes: para ellas no cambia nada.
+   ------------------------------------------------------------ */
+
+.product__media-wrapper .product-media-container .product__media.media > img {
+  object-fit: contain !important;
+}
+
+.product__media-wrapper .product-media-container .product__media.media {
+  background: var(--mm-rose-soft, #f6eef0);
+}

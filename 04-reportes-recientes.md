@@ -82,14 +82,24 @@ que queda por hacer: sacar Reels del grupo de estáticos.
 
 No hay gasto en Audience Network, así que los clics baratos no vienen de ahí.
 
+### El objetivo del conjunto: la palanca que faltaba
+
+`optimization_goal: LANDING_PAGE_VIEWS`. Ver la corrección del 23/9 en `02-meta-ads.md`.
+
+### Hecho el 23/9
+
+Pausados los anuncios **1 · Envío gratis** y **2 · $501 con envío**. Queda solo
+**3 · Garantía 7 días**. Entre los dos pausados gastaron $0,52 en 7 días y no trajeron ni un carrito,
+así que pausarlos no cambia el reparto del presupuesto: deja la cuenta limpia.
+
 ### El cuello de botella, con referencias del rubro
 
-| | Hoy | Normal en ropa |
-|---|---|---|
-| Visitas que agregan al carrito | 0,56 % | 5 – 8 % |
-| Visitas que compran | 0,07 % | 1 – 2 % |
+| | Hoy | Normal en ropa | Distancia |
+|---|---|---|---|
+| Visitas que agregan al carrito | 0,56 % | 5 – 8 % | **9 a 14 veces menos** |
+| Visitas que compran | 0,07 % | 1 – 2 % | **14 a 29 veces menos** |
 
-Con 2.863 visitas, una tienda que convierte normal habría hecho **entre 30 y 55 ventas**. Los rangos
+Con 2.863 visitas, una tienda que convierte normal habría hecho **entre 29 y 57 ventas**. Los rangos
 son referencias del rubro para dar contexto, no una proyección de esta tienda.
 
 ## PDF entregados al cliente (carpeta `reportes/`)

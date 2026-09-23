@@ -24,12 +24,34 @@ Anuncios del grupo de estáticos:
 
 | Anuncio | ID | Nota |
 |---|---|---|
-| **3 · Garantía 7 días** | `120252740747420725` | **El ganador**: casi todo el gasto, los carritos y las 2 ventas |
-| 2 · $501 con envío | `120252740746430725` | Meta dejó de mostrarlo solo (centavos de gasto) |
-| 1 · Envío gratis | `120252740746060725` | Idem |
+| **3 · Garantía 7 días** | `120252740747420725` | **El ganador**, y el único activo: casi todo el gasto, los carritos y las 2 ventas |
+| 2 · $501 con envío | `120252740746430725` | **Pausado el 23/9.** $0,18 en 7 días, 0 carritos |
+| 1 · Envío gratis | `120252740746060725` | **Pausado el 23/9.** $0,34 en 7 días, 0 carritos |
 
-Configuración: objetivo Ventas, optimiza a compra, México, mujeres 18-45, sin intereses.
+Configuración: México, mujeres 18-45, sin intereses.
 **Advantage+ Audience y Advantage+ Creative desactivados** (pedido del cliente).
+
+> **Corrección del 23/9.** Acá decía "optimiza a compra". **Es falso.** El conjunto de estáticos tiene
+> `optimization_goal: LANDING_PAGE_VIEWS`. O sea que a Meta se le está pidiendo la gente más barata
+> que *abra* la página, no la que compre. Eso explica el clic de $0,03 y el 0,56 % de carritos.
+>
+> **No se puede arreglar editando el conjunto.** Meta responde:
+> *"You can't edit your pixel, conversion event, custom conversion or optimization for an ad set
+> after the ad set is published. To run an ad set with your desired changes, create a new ad set."*
+> Hay que **armar un conjunto nuevo**. Con 2 compras en 15 días no alcanza para optimizar a compra
+> (Meta pide del orden de 50 por semana), así que el paso realista es optimizar a **agregar al
+> carrito**, que tiene 16 eventos.
+
+### Ubicaciones del conjunto de estáticos (23/9)
+
+Manuales, no Advantage+. **Reels está prendido**, que es cosa distinta del *conjunto de Video*, que
+está pausado desde el 17/9. Confundir las dos cosas ya costó una vuelta:
+
+- Facebook: `feed`, `story`, `facebook_reels`, `profile_feed`
+- Instagram: `stream`, `story`, `reels`, `profile_feed` (`explore` está configurado pero no entrega)
+
+Historias, Reels y feed **no son conjuntos**: son ubicaciones de un mismo conjunto. Editarlas
+reinicia el aprendizaje.
 
 ## Qué funciona
 

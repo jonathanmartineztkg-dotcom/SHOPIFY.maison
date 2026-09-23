@@ -42,16 +42,59 @@ Configuración: México, mujeres 18-45, sin intereses.
 > (Meta pide del orden de 50 por semana), así que el paso realista es optimizar a **agregar al
 > carrito**, que tiene 16 eventos.
 
-### Ubicaciones del conjunto de estáticos (23/9)
+### Ubicaciones del conjunto de estáticos
 
-Manuales, no Advantage+. **Reels está prendido**, que es cosa distinta del *conjunto de Video*, que
-está pausado desde el 17/9. Confundir las dos cosas ya costó una vuelta:
+Manuales, no Advantage+. Historias, Reels y feed **no son conjuntos**: son ubicaciones de un mismo
+conjunto. Confundir las dos cosas ya costó dos vueltas.
 
-- Facebook: `feed`, `story`, `facebook_reels`, `profile_feed`
-- Instagram: `stream`, `story`, `reels`, `profile_feed` (`explore` está configurado pero no entrega)
+**Antes del 23/9:** Facebook `feed`, `story`, `facebook_reels`, `profile_feed` · Instagram `stream`,
+`story`, `reels`, `profile_feed`.
 
-Historias, Reels y feed **no son conjuntos**: son ubicaciones de un mismo conjunto. Editarlas
-reinicia el aprendizaje.
+**Desde el 23/9 (Reels fuera):** Facebook `feed`, `story` · Instagram `stream`, `story`.
+
+Editar las ubicaciones **reinicia el aprendizaje** y además Meta **pausa el conjunto sola** al
+guardar el cambio (`status_forced_to_paused: true`). Hay que volver a activarlo a mano con
+`ads_activate_entity` o desde Ads Manager, o el conjunto se queda apagado sin avisar.
+
+### Reparto por ubicación del conjunto de estáticos (8–22/9, $60,58)
+
+| Ubicación | Gasto | Clics | Visitas | Carritos | Ventas |
+|---|---|---|---|---|---|
+| Reels de Instagram | $35,60 | 1.443 | 810 | 6 | 1 |
+| Feed de Instagram | $9,33 | 442 | 170 | 1 | — |
+| Reels de Facebook | $7,46 | 229 | 157 | 0 | — |
+| Historias de Instagram | $4,21 | 217 | 94 | 2 | — |
+| **Feed de Facebook** | **$3,51** | 191 | 83 | **2** | **1** |
+| Historias de Facebook | $0,46 | 27 | 20 | 0 | — |
+| Perfil de Facebook | $0,01 | 1 | 0 | 0 | — |
+
+**71 % del presupuesto se iba a Reels** ($43,06 de $60,58). El feed de Facebook trajo una venta con
+$3,51; los Reels de Instagram trajeron la otra con $35,60. Diez veces más caro.
+
+### Los dos conjuntos, 8–22/9
+
+| Conjunto | Gasto | Visitas | Carritos | Ventas | Estado |
+|---|---|---|---|---|---|
+| Estáticos | $60,58 | 1.334 | 11 | **2** | Activo |
+| Video | $28,37 | 418 | 2 | 0 | Pausado el 17/9 |
+
+El video se llevó **casi un tercio de todo lo gastado** sin traer una venta. Por eso se pausó.
+
+Ojo con las "visitas": son las que atribuye Meta. Shopify cuenta 2.863 porque cuenta todo el
+tráfico. Las dos cifras son correctas y miden cosas distintas.
+
+### Cuándo se armó todo (horario de Argentina)
+
+| Qué | Cuándo |
+|---|---|
+| Campaña "Video vs Estáticos" creada | 7/9, 18:07 |
+| Los dos conjuntos | 7/9, 18:08 (con 16 segundos de diferencia) |
+| Los 3 anuncios de estáticos | 7/9, 18:51 |
+| Anuncio de video y el "NO USAR" | 8/9, 09:52–09:59 |
+| Última edición del conjunto antes del 23/9 | 17/9, 21:25 |
+
+El registro de actividad de Meta —el que dice **quién** hizo cada cambio— no está habilitado en esta
+cuenta ("is being gradually rolled out"). Para el quién hay que mirar el historial en Ads Manager.
 
 ## Qué funciona
 

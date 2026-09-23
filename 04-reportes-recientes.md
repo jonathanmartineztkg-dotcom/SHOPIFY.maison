@@ -66,19 +66,10 @@ Tomados de Meta y de Shopify el 23/9. **El informe del 23/9 los tiene completos.
 
 **Del 20 al 22/9: 747 visitas, 3 carritos, 0 ventas.** Tres días sin vender.
 
-### Por ubicación (15–22/9, $60,07)
+### Por ubicación
 
-| Ubicación | Gasto | Clics | Carritos | Ventas |
-|---|---|---|---|---|
-| Reels de Instagram | $27,21 | 1.075 | 6 | 1 |
-| Feed de Instagram | $8,89 | 361 | 1 | — |
-| Feed de Facebook | $8,73 | 328 | 2 | 1 |
-| Reels de Facebook | $8,46 | 245 | 0 | — |
-| Historias de Instagram | $6,11 | 222 | 2 | — |
-| Historias de Facebook | $0,67 | 30 | 0 | — |
-
-**El 60 % del presupuesto se va a Reels con anuncios que son fotos fijas.** Es el cambio más barato
-que queda por hacer: sacar Reels del grupo de estáticos.
+Ver el reparto completo del conjunto de estáticos (8–22/9) en `02-meta-ads.md`: **71 % del
+presupuesto se iba a Reels**. Ya está sacado.
 
 No hay gasto en Audience Network, así que los clics baratos no vienen de ahí.
 
@@ -88,9 +79,12 @@ No hay gasto en Audience Network, así que los clics baratos no vienen de ahí.
 
 ### Hecho el 23/9
 
-Pausados los anuncios **1 · Envío gratis** y **2 · $501 con envío**. Queda solo
-**3 · Garantía 7 días**. Entre los dos pausados gastaron $0,52 en 7 días y no trajeron ni un carrito,
-así que pausarlos no cambia el reparto del presupuesto: deja la cuenta limpia.
+1. Pausados los anuncios **1 · Envío gratis** y **2 · $501 con envío**. Queda solo
+   **3 · Garantía 7 días**. Entre los dos pausados gastaron $0,52 en 7 días y no trajeron ni un
+   carrito: pausarlos no cambia el reparto del presupuesto, deja la cuenta limpia.
+2. **Sacado Reels** de las ubicaciones del conjunto de estáticos. Queda en feed e historias de
+   Facebook e Instagram, con el mismo presupuesto de $6,30/día. **Reinicia el aprendizaje**: los
+   primeros días entrega raro y más caro.
 
 ### El cuello de botella, con referencias del rubro
 

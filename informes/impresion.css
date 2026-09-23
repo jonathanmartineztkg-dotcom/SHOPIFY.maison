@@ -1,0 +1,72 @@
+/* ============================================================
+   Solo para el PDF. Se agrega DESPUÉS de estilo.css, así que
+   le gana. En pantalla no se usa.
+   ============================================================ */
+
+@page {
+  size: A4;
+  margin: 11mm 12mm 12mm;
+}
+
+html,
+body {
+  background: #ffffff;
+}
+
+body {
+  font-size: 10.3pt;
+  line-height: 1.45;
+}
+
+.hoja {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  gap: 6mm;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.cifras {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4mm;
+}
+.cifra dd {
+  font-size: 18pt;
+}
+
+table {
+  font-size: 9pt;
+}
+th,
+td {
+  padding: .42rem .45rem;
+  white-space: normal;
+}
+
+/* Lo que no se puede partir al medio entre dos páginas. Las secciones
+   SÍ se pueden partir: si no, quedan páginas medio vacías. */
+.nota,
+.cifra,
+table,
+.tabla-caja {
+  break-inside: avoid;
+}
+section {
+  break-inside: auto;
+}
+tr,
+li {
+  break-inside: avoid;
+}
+h2,
+h3 {
+  break-after: avoid;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

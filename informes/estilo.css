@@ -1,0 +1,133 @@
+/* ============================================================
+   Estilo de los informes de Maison. Se comparte entre todos,
+   para que el cliente los reconozca de un vistazo.
+   Ver 11-informes-como-se-hacen.md
+   ============================================================ */
+
+:root {
+    color-scheme: light;
+    --papel: #ffffff;
+    --papel-2: #fbf8f8;
+    --tinta: #171412;
+    --medio: #6b5c58;
+    --tenue: #9a8b86;
+    --hilo: #e8dcde;
+    --rosa: #b97c8c;
+    --rosa-suave: #f6eef0;
+    --alerta: #9f2532;
+    --bien: #3f5d3a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --papel: #16110f;
+      --papel-2: #1e1816;
+      --tinta: #f6efee;
+      --medio: #b7a6a1;
+      --tenue: #8d7d79;
+      --hilo: #362c2a;
+      --rosa: #d99cab;
+      --rosa-suave: #2a1e21;
+      --alerta: #e08a93;
+      --bien: #9ec296;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --papel: #16110f;
+    --papel-2: #1e1816;
+    --tinta: #f6efee;
+    --medio: #b7a6a1;
+    --tenue: #8d7d79;
+    --hilo: #362c2a;
+    --rosa: #d99cab;
+    --rosa-suave: #2a1e21;
+    --alerta: #e08a93;
+    --bien: #9ec296;
+  }
+
+  body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: Figtree, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hoja {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  .cabecera { display: flex; flex-direction: column; gap: .55rem; }
+  .marca { font-size: .72rem; font-weight: 700; letter-spacing: .22em; color: var(--rosa); }
+  h1 { margin: 0; font-size: clamp(1.75rem, 6vw, 2.4rem); font-weight: 800; line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+  .fecha { font-size: .9rem; color: var(--medio); }
+
+  .cifras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  @media (min-width: 620px) { .cifras { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .cifra {
+    display: flex; flex-direction: column; gap: .3rem;
+    padding: 1rem .9rem 1.1rem;
+    border: 1px solid var(--hilo);
+    background: var(--papel-2);
+  }
+  .cifra dt { font-size: .68rem; font-weight: 700; letter-spacing: .13em; color: var(--tenue); text-transform: uppercase; }
+  .cifra dd { margin: 0; font-size: 1.65rem; font-weight: 800; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+  .cifra .pie { font-size: .78rem; color: var(--medio); line-height: 1.35; }
+
+  section { display: flex; flex-direction: column; gap: 1rem; }
+  h2 {
+    margin: 0; font-size: .74rem; font-weight: 800; letter-spacing: .17em;
+    text-transform: uppercase; color: var(--rosa);
+    padding-bottom: .6rem; border-bottom: 1px solid var(--hilo);
+  }
+  h3 { margin: 0; font-size: 1.05rem; font-weight: 700; letter-spacing: -.015em; }
+  p { margin: 0; }
+  p + p { margin-top: .7rem; }
+  .medio { color: var(--medio); }
+
+  .tabla-caja { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+  th, td { padding: .55rem .5rem; text-align: right; border-bottom: 1px solid var(--hilo); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tenue); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tr.destaca td { font-weight: 700; }
+  tr.apaga td { color: var(--tenue); }
+  .cero { color: var(--alerta); font-weight: 700; }
+  .venta { color: var(--bien); font-weight: 700; }
+
+  .nota {
+    padding: .9rem 1rem;
+    border-left: 3px solid var(--rosa);
+    background: var(--rosa-suave);
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+
+  ol, ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .7rem; }
+  li { padding-left: .15rem; }
+  li strong { font-weight: 700; }
+
+  .pasos { list-style: none; padding: 0; counter-reset: paso; }
+  .pasos > li {
+    counter-increment: paso;
+    display: grid; grid-template-columns: 1.9rem 1fr; gap: .7rem;
+    align-items: start;
+  }
+  .pasos > li::before {
+    content: counter(paso);
+    display: flex; align-items: center; justify-content: center;
+    width: 1.7rem; height: 1.7rem;
+    background: var(--tinta); color: var(--papel);
+    font-size: .8rem; font-weight: 800;
+  }
+
+  footer { font-size: .82rem; color: var(--tenue); line-height: 1.5; border-top: 1px solid var(--hilo); padding-top: 1.1rem; }

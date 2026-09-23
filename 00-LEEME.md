@@ -24,6 +24,8 @@ lleva la tienda y las campañas.
 | `08-ficha-y-tipografia.md` | **La galería por color**, el botón redondeado, las garantías en una fila y la tipografía nueva |
 | `09-ajustes-finos.md` | **Segunda tanda del 21/9**: título menos negrita, fotos de modelo en la home, redondeo sutil y líneas en la descripción |
 | `10-etiquetas-y-cantidad.md` | **Tercera tanda del 21/9**: etiquetas NUEVO y de oferta sobre la galería, el ahorro en pesos atado al precio, y el descuento por cantidad 10/20/30 % |
+| `11-informes-como-se-hacen.md` | **Cómo se rehace un informe**: el comando, las consultas exactas de Meta y Shopify, las trampas y los desgloses en crudo |
+| `informes/` | El estilo compartido, las fuentes y el cuerpo de cada informe. Se arma con `informes/construir.py` |
 | `reportes/` | Los PDF que ya recibió el cliente |
 | `fotos-tienda/` | Las fotos de modelo sin el sello "Ai", listas para subir. Empezar por su `LEEME.md` |
 | `marca/` | Piezas de marca: el redondo de la M, los videos y el CSS de la barra de anuncios |
@@ -41,3 +43,6 @@ Hay dos errores que ya tumbaron o rompieron la tienda una vez.
 - **No** prometer resultados sobre el cuerpo en anuncios (Meta los rechaza).
 - El número fiscal (EIN) de la LLC **nunca** va en la web.
 - Nunca mover dinero ni cobrar desde las cuentas del cliente.
+- En lo que **ve el cliente** no va ningún dato interno: ni el nombre de la cuenta publicitaria
+  (nada de **"Holanda"**), ni IDs de campaña, conjunto, anuncio, píxel o tema, ni rutas del repo.
+  El pie de los informes dice "Números de Meta y de Shopify" y nada más. Ver `11-informes-como-se-hacen.md`.
